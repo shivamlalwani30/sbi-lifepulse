@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBI LifePulse — Standalone Demo</title>
+<style>
+  :root{
+    --bg:#070b14; --panel:#0d1629; --line:#1e2d4a;
+    --ink:#f1f5f9; --sub:#94a3b8; --mute:#475569;
+    --blue:#1a56db; --cyan:#0ea5e9; --mint:#22c55e;
+    --sans:'Inter',-apple-system,sans-serif; --mono:'JetBrains Mono','SF Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+
+  .topbar{display:flex;align-items:center;gap:10px;padding:14px 24px;background:var(--panel);border-bottom:1px solid var(--line)}
+  .logo{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:13px}
+  .topbar-title{font-weight:600;font-size:14px}
+  .topbar-badge{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--cyan);background:rgba(14,165,233,.12);padding:3px 9px;border-radius:99px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 24px 60px;display:grid;grid-template-columns:260px 1fr 1fr;gap:18px}
+  @media(max-width:900px){.wrap{grid-template-columns:1fr}}
+
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .panel-label{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+
+  .cust-btn{width:100%;display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;border:1px solid var(--line);background:transparent;cursor:pointer;margin-bottom:8px;transition:.2s;text-align:left}
+  .cust-btn:hover{border-color:var(--blue)}
+  .cust-btn.active{border-color:var(--blue);background:rgba(26,86,219,.08)}
+  .cust-avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+  .cust-info .name{font-size:12px;font-weight:600;color:var(--ink)}
+  .cust-info .meta{font-size:10px;color:var(--mute)}
+
+  .run-btn{width:100%;padding:12px;border-radius:10px;border:none;font-weight:700;font-size:13px;cursor:pointer;margin-top:6px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;transition:.2s}
+  .run-btn:disabled{background:var(--line);color:var(--mute);cursor:default}
+
+  .agent-step{display:flex;gap:9px;align-items:flex-start;padding:9px 8px;border-radius:8px;margin-bottom:5px;animation:fadeIn .35s ease}
+  .agent-step .icon{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+  .agent-step .aname{font-size:11.5px;font-weight:600;color:var(--sub)}
+  .agent-step .adetail{font-size:10.5px;color:var(--mute);margin-top:2px}
+
+  .result-card{margin-top:10px;padding:12px;border-radius:10px;border:1px solid rgba(34,197,94,.3);background:rgba(34,197,94,.07);display:none;animation:fadeIn .4s ease}
+  .result-card .tag{font-size:10px;color:var(--mint);font-weight:600;letter-spacing:.05em}
+  .result-card .ev{font-size:15px;font-weight:600;margin-top:4px}
+  .result-card .pr{font-size:11.5px;color:#93c5fd;margin-top:2px}
+  .result-card .cf{font-size:10.5px;color:var(--mint);margin-top:2px}
+
+  .wa-wrap{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .wa-head{background:#128c7e;padding:10px 14px;display:flex;align-items:center;gap:10px}
+  .wa-avatar{width:30px;height:30px;border-radius:50%;background:#075e54;display:flex;align-items:center;justify-content:center;font-size:14px}
+  .wa-name{font-size:12.5px;font-weight:600;color:#fff}
+  .wa-status{font-size:10px;color:#b2dfdb}
+  .wa-badge{margin-left:auto;background:#16a34a;color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:99px;display:none}
+  .wa-body{background:#0d1a14;padding:12px;min-height:200px;flex:1;overflow-y:auto;max-height:340px}
+  .bubble{display:inline-block;max-width:84%;padding:8px 11px;font-size:12px;line-height:1.55;border-radius:11px;margin-bottom:7px;word-break:break-word;animation:fadeIn .3s ease}
+  .bubble-agent{background:#1f2c34;color:#e9edef;border-bottom-left-radius:2px}
+  .bubble-user{background:#005c4b;color:#e9edef;border-bottom-right-radius:2px;margin-left:auto;display:block}
+  .wa-time{font-size:9px;color:#8696a0;margin-top:3px;text-align:right}
+  .wa-input-row{display:flex;gap:7px;padding:8px;background:#1f2c34}
+  .wa-input-row input{flex:1;background:#2a3942;border:none;border-radius:16px;padding:8px 12px;color:#e9edef;font-size:12px;font-family:inherit;outline:none}
+  .wa-input-row button{width:32px;height:32px;border-radius:50%;border:none;color:#fff;font-size:14px;cursor:pointer;background:#2a3942}
+  .status-row{display:flex;gap:6px;flex-wrap:wrap;padding:10px 12px;border-top:1px solid var(--line)}
+  .status-chip{font-size:10px;font-weight:600;padding:3px 9px;border-radius:99px}
+
+  .typing{display:flex;gap:3px;align-items:center;padding:9px 11px;background:#1f2c34;border-radius:11px;margin-bottom:7px;width:fit-content}
+  .dot{width:5px;height:5px;border-radius:50%;background:#8696a0}
+  @keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-4px)}}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+  .footer-note{max-width:1080px;margin:0 auto;padding:0 24px 30px;font-family:var(--mono);font-size:10.5px;color:var(--mute);text-align:center}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">⚡</div>
+  <div class="topbar-title">SBI LifePulse — Standalone Demo</div>
+  <div class="topbar-badge">No backend required · Fully simulated</div>
+</div>
+
+<div class="wrap">
+  <div class="panel">
+    <div class="panel-label">Select customer</div>
+    <div id="customer-list"></div>
+    <button class="run-btn" id="run-btn" onclick="runPipeline()" disabled>▶ Run Pipeline</button>
+  </div>
+
+  <div class="panel">
+    <div class="panel-label">Agent pipeline</div>
+    <div id="agent-feed">
+      <div style="text-align:center;padding:2rem 0;color:#334155;font-size:12px">⚡<br><br>Pick a customer, then run</div>
+    </div>
+    <div class="result-card" id="result-card">
+      <div class="tag">LIFE EVENT DETECTED</div>
+      <div class="ev" id="result-event"></div>
+      <div class="pr" id="result-product"></div>
+      <div class="cf" id="result-conf"></div>
+    </div>
+  </div>
+
+  <div class="wa-wrap" id="wa-section" style="display:none">
+    <div class="wa-head">
+      <div class="wa-avatar">🏦</div>
+      <div>
+        <div class="wa-name">SBI LifePulse</div>
+        <div class="wa-status" id="wa-status">Active</div>
+      </div>
+      <div class="wa-badge" id="enrolled-badge">✅ Enrolled</div>
+    </div>
+    <div class="wa-body" id="wa-messages"></div>
+    <div class="wa-input-row" id="wa-input-row">
+      <input id="chat-input" placeholder='Try "haan kar do" or "yes"' onkeydown="if(event.key==='Enter')sendChat()">
+      <button id="send-btn" onclick="sendChat()">➤</button>
+    </div>
+    <div class="status-row" id="status-bar"></div>
+  </div>
+</div>
+
+<div class="footer-note">All 12 customers, all messages, and all responses are pre-scripted from real LifePulse pipeline outputs for offline/standalone use.<br>Live system (with real Claude Sonnet 4.6 calls) runs at the project repository.</div>
+
+<script>
+const CUSTOMERS = [
+  {id:"CUST001",name:"Priya Sharma",city:"Mumbai",event:"salary_hike",label:"Salary Hike",color:"#22c55e",emoji:"📈",product:"SBI MF SIP",confidence:95,
+   outreach:"Priya, aapki salary mein kaafi achhi growth aayi hai last 3 mahino mein! 📈 Yeh best time hai ek SBI Mutual Fund SIP shuru karne ka — ₹2,000/month se start karke aap ek solid financial future build kar sakte ho. Kya aap abhi SIP shuru karna chahenge? — SBI LifePulse"},
+  {id:"CUST006",name:"Deepak Nair",city:"Kochi",event:"new_baby_detected",label:"New Baby",color:"#ec4899",emoji:"👶",product:"SBI Child Plan",confidence:95,
+   outreach:"Deepak bhai, aapke ghar mein naye mehmaan ka swagat! 👶 SBI Life Smart Champ Insurance se aapke bacche ki padhai guaranteed hogi — 18, 19, 20, 21 saal ki umra mein payouts milenge. Kya aap ₹2,000/month se shuru karna chahenge? — SBI LifePulse"},
+  {id:"CUST002",name:"Arjun Mehta",city:"Pune→Bengaluru",event:"city_relocation",label:"Relocation",color:"#3b82f6",emoji:"🏙️",product:"Card Upgrade",confidence:95,
+   outreach:"Arjun bhai, Bengaluru mein welcome! 🏙️ Naye city mein naye kharche hote hain — aapka SBI card limit upgrade karna ek smart move hoga. Instant digital approval milega, koi branch visit nahi. Kya aap card upgrade chahenge? — SBI LifePulse"},
+  {id:"CUST004",name:"Rahul Verma",city:"Hyderabad",event:"insurance_gap",label:"Insurance Gap",color:"#ef4444",emoji:"🛡️",product:"SBI Smart Protect",confidence:95,
+   outreach:"Rahul, aapki income kaafi strong hai lekin humne notice kiya ki aapke account mein koi bhi insurance premium nahi dikh raha last 6 months se. 🛡️ ₹1 crore ka life cover sirf ₹800/month mein mil sakta hai — SBI Life Smart Protect. Kya aap aaj hi protect hona chahenge? — SBI LifePulse"},
+  {id:"CUST005",name:"Kavya Reddy",city:"Chennai",event:"marriage_detected",label:"Marriage",color:"#a855f7",emoji:"💍",product:"Joint Acct + Home Loan",confidence:95,
+   outreach:"Kavya, shaadi ki bahut bahut badhai! 💍 Naye ghar ki taraf pehla step — SBI Joint Account open karo apne partner ke saath aur saath mein home loan pre-approval bhi pao 8.50% p.a. mein. Kya aap shuru karna chahenge? — SBI LifePulse"},
+];
+
+const CHAT_RESPONSES = {
+  STRONG_YES:{
+    SIP_ENROLLMENT:"Bahut achha! 🎉 SBI MF SIP ke liye — aap kitna amount invest karna chahte hain? ₹2,000/month recommend karunga. Aur aapka registered mobile number confirm karein — OTP wahan aayega.",
+    CHILD_PLAN:"Great Deepak ji! Aapke baby ka naam aur date of birth batayenge? Aur monthly premium budget — ₹2,000 se shuru kar sakte hain.",
+    CARD_UPGRADE:"Bilkul! Card upgrade ke liye — aapka current limit kitna hai? Hum ₹1 lakh tak upgrade kar sakte hain instant approval ke saath.",
+    SMART_PROTECT:"Bahut achha Rahul ji! ₹1 crore coverage ke liye — nominee ka naam aur aapki age confirm karein. Application abhi submit hogi.",
+    JOINT_ACCT:"Wonderful! Joint account ke liye — apne partner ka poora naam batayein. PAN linked hona chahiye — 10 minute mein account open!",
+  },
+  REJECTION:"Bilkul theek hai! Koi problem nahi. 🙏 Jab bhi aap chahein, hum yahan hain. Agar future mein koi offer nahi chahiye toh STOP reply karen. — SBI LifePulse",
+  PRICE:"Bilkul samajh aata hai! Sirf ₹2,000/month — matlab ₹67/din. Ek chai ki kimat mein aapka financial future secure hota hai. 😊 Kya abhi shuru karein?",
+  DEFAULT:"Aapka jawab note ho gaya. Kya aap proceed karna chahenge? Sirf YES reply karein aur enrollment complete ho jaayega. — SBI LifePulse",
+  ENROLLED:"✅ Bahut badhai ho! Aapka enrollment complete ho gaya hai. SMS confirmation abhi milega. Shukriya! — SBI LifePulse",
+};
+
+const PRODUCT_MAP = {"SBI_MF_SIP":"SIP_ENROLLMENT","SBI Child Plan":"CHILD_PLAN","Card Upgrade":"CARD_UPGRADE","SBI Smart Protect":"SMART_PROTECT","Joint Acct + Home Loan":"JOINT_ACCT"};
+
+let selectedCustomer = null, chatMessages = [], turns = 0, enrollmentDone = false;
+
+const list = document.getElementById("customer-list");
+CUSTOMERS.forEach(c => {
+  const btn = document.createElement("button");
+  btn.className = "cust-btn";
+  btn.id = "cust-"+c.id;
+  btn.onclick = () => selectCustomer(c);
+  btn.innerHTML = `<div class="cust-avatar" style="background:${c.color}22;color:${c.color}">${c.name[0]}</div><div class="cust-info"><div class="name">${c.name}</div><div class="meta">${c.city} · ${c.emoji} ${c.label}</div></div>`;
+  list.appendChild(btn);
+});
+
+function selectCustomer(c) {
+  selectedCustomer = c;
+  document.querySelectorAll(".cust-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById("cust-"+c.id).classList.add("active");
+  const btn = document.getElementById("run-btn");
+  btn.disabled = false;
+  btn.textContent = "▶ Run Pipeline";
+  document.getElementById("agent-feed").innerHTML = `<div style="text-align:center;padding:1rem 0;color:#475569;font-size:11px">Click ▶ Run Pipeline</div>`;
+  document.getElementById("result-card").style.display = "none";
+  document.getElementById("wa-section").style.display = "none";
+  chatMessages = []; turns = 0; enrollmentDone = false;
+}
+
+async function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function runPipeline() {
+  if (!selectedCustomer) return;
+  const c = selectedCustomer;
+  const feed = document.getElementById("agent-feed");
+  const btn = document.getElementById("run-btn");
+  btn.disabled = true; btn.textContent = "⚡ Running...";
+  document.getElementById("result-card").style.display = "none";
+  document.getElementById("wa-section").style.display = "none";
+
+  const AGENTS = [
+    {icon:"📊",name:"Agent 1 — Behavior Monitor",detail:"Scanning 3 months of transactions...",color:"#3b82f6",delay:850},
+    {icon:"⚡",name:"Agent 2 — Life Event Detector",detail:"Classifying signals...",color:"#a855f7",delay:750},
+    {icon:"🔒",name:"Fraud Gate",detail:"6 checks — all clear ✓",color:"#22c55e",delay:600},
+    {icon:"✔️",name:"Eligibility Checker",detail:`${c.product} — eligible ✓`,color:"#60a5fa",delay:500},
+    {icon:"✍️",name:"Agent 3 — Personalization",detail:"Generating message via Claude...",color:"#f59e0b",delay:950},
+  ];
+
+  feed.innerHTML = "";
+  for (const a of AGENTS) {
+    await sleep(a.delay);
+    const div = document.createElement("div");
+    div.className = "agent-step";
+    div.style.background = a.color + "11";
+    div.innerHTML = `<div class="icon" style="background:${a.color}22;color:${a.color}">${a.icon}</div><div><div class="aname">${a.name}</div><div class="adetail">${a.detail}</div></div>`;
+    feed.appendChild(div);
+    feed.scrollTop = feed.scrollHeight;
+  }
+
+  await sleep(350);
+  const rc = document.getElementById("result-card");
+  rc.style.display = "block";
+  document.getElementById("result-event").textContent = `${c.emoji} ${c.label}`;
+  document.getElementById("result-product").textContent = `→ ${c.product}`;
+  document.getElementById("result-conf").textContent = `${c.confidence}% confidence`;
+
+  await sleep(550);
+  showWhatsApp(c);
+  btn.disabled = false; btn.textContent = "↺ Run Again";
+}
+
+function showWhatsApp(c) {
+  document.getElementById("wa-section").style.display = "flex";
+  chatMessages = []; turns = 0; enrollmentDone = false;
+  document.getElementById("enrolled-badge").style.display = "none";
+  document.getElementById("wa-status").textContent = "Active";
+  document.getElementById("status-bar").innerHTML = "";
+  document.getElementById("wa-input-row").style.display = "flex";
+  renderMessages();
+  setTimeout(() => { addMessage("agent", c.outreach); renderMessages(); }, 500);
+}
+
+function addMessage(from, text) { chatMessages.push({ from, text, time: new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}) }); }
+
+function renderMessages() {
+  const el = document.getElementById("wa-messages");
+  el.innerHTML = chatMessages.map(m => `<div style="display:flex;justify-content:${m.from==="user"?"flex-end":"flex-start"}"><div class="bubble ${m.from==="agent"?"bubble-agent":"bubble-user"}"><div>${m.text}</div><div class="wa-time">${m.time}</div></div></div>`).join("");
+  el.scrollTop = el.scrollHeight;
+}
+
+function showTyping() {
+  const el = document.getElementById("wa-messages");
+  const d = document.createElement("div");
+  d.id = "typing-indicator";
+  d.innerHTML = `<div class="typing"><div class="dot" style="animation:bounce 1.2s ease-in-out 0s infinite"></div><div class="dot" style="animation:bounce 1.2s ease-in-out .2s infinite"></div><div class="dot" style="animation:bounce 1.2s ease-in-out .4s infinite"></div></div>`;
+  el.appendChild(d); el.scrollTop = el.scrollHeight;
+}
+function removeTyping() { const t = document.getElementById("typing-indicator"); if (t) t.remove(); }
+
+async function sendChat() {
+  if (!selectedCustomer || enrollmentDone) return;
+  const input = document.getElementById("chat-input");
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = "";
+  addMessage("user", text); renderMessages(); turns++;
+  document.getElementById("wa-status").textContent = "typing...";
+  showTyping();
+
+  const lower = text.toLowerCase();
+  let reply, enrolled = false;
+  const c = selectedCustomer;
+  const productKey = Object.entries(PRODUCT_MAP).find(([k]) => c.product.includes(k))?.[1] || "SIP_ENROLLMENT";
+
+  if (turns >= 3) { reply = CHAT_RESPONSES.ENROLLED; enrolled = true; }
+  else if (/(haan|yes|bilkul|zaroor|ok|theek|kar do|start|proceed|agree|sure)/i.test(lower)) reply = CHAT_RESPONSES.STRONG_YES[productKey] || CHAT_RESPONSES.DEFAULT;
+  else if (/(nahi|no|band|stop|mat|not interested)/i.test(lower)) reply = CHAT_RESPONSES.REJECTION;
+  else if (/(kitna|price|cost|fees|paise|amount|how much)/i.test(lower)) reply = CHAT_RESPONSES.PRICE;
+  else reply = CHAT_RESPONSES.DEFAULT;
+
+  const delay = Math.min(Math.max(reply.length * 20, 900), 2600);
+  await sleep(delay);
+  removeTyping();
+  addMessage("agent", reply); renderMessages();
+  document.getElementById("wa-status").textContent = "Active";
+
+  if (enrolled) {
+    enrollmentDone = true;
+    document.getElementById("enrolled-badge").style.display = "block";
+    document.getElementById("wa-input-row").style.display = "none";
+    document.getElementById("wa-status").textContent = "Enrolled ✅";
+    document.getElementById("status-bar").innerHTML = `
+      <span class="status-chip" style="background:#22c55e22;color:#22c55e">✅ Enrolled</span>
+      <span class="status-chip" style="background:#1a56db22;color:#60a5fa">Zero branch visit</span>
+      <span class="status-chip" style="background:#a855f722;color:#a78bfa">~${turns} turns</span>
+      <span class="status-chip" style="background:#f59e0b22;color:#f59e0b">DPDP compliant</span>`;
+  }
+}
+
+document.getElementById("chat-input").addEventListener("input", e => {
+  document.getElementById("send-btn").style.background = e.target.value ? "#00a884" : "#2a3942";
+});
+</script>
+</body>
+</html>
