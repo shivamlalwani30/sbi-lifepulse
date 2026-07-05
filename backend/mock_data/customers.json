@@ -1,0 +1,1742 @@
+{
+  "customers": [
+    {
+      "id": "CUST001",
+      "name": "Priya Sharma",
+      "phone": "+91-9876543210",
+      "email": "priya.sharma@gmail.com",
+      "age": 29,
+      "city": "Mumbai",
+      "account_number": "SBI00012345",
+      "account_type": "Savings",
+      "consent": {
+        "opted_in": true,
+        "consent_date": "2024-01-15",
+        "channel": "YONO App",
+        "dpdp_version": "1.0"
+      },
+      "profile": {
+        "occupation": "Software Engineer",
+        "employer": "Infosys Ltd",
+        "existing_products": [
+          "Savings Account",
+          "SBI Debit Card"
+        ],
+        "credit_score": 742,
+        "kyc_status": "verified"
+      },
+      "life_event_hint": "salary_hike",
+      "account_balance_history": [
+        {
+          "month": "2024-10",
+          "balance": 42000
+        },
+        {
+          "month": "2024-11",
+          "balance": 58000
+        },
+        {
+          "month": "2024-12",
+          "balance": 81000
+        }
+      ],
+      "transactions": [
+        {
+          "date": "2024-10-01",
+          "amount": 52000,
+          "type": "credit",
+          "description": "NEFT-INFOSYS LTD SALARY OCT",
+          "category": "salary",
+          "merchant": "Infosys Ltd"
+        },
+        {
+          "date": "2024-10-05",
+          "amount": -1200,
+          "type": "debit",
+          "description": "UPI-SWIGGY ORDER",
+          "category": "food",
+          "merchant": "Swiggy"
+        },
+        {
+          "date": "2024-10-10",
+          "amount": -8000,
+          "type": "debit",
+          "description": "NEFT-HOUSE RENT OCT",
+          "category": "rent",
+          "merchant": "Landlord"
+        },
+        {
+          "date": "2024-10-15",
+          "amount": -3500,
+          "type": "debit",
+          "description": "UPI-AMAZON PURCHASE",
+          "category": "shopping",
+          "merchant": "Amazon"
+        },
+        {
+          "date": "2024-10-22",
+          "amount": -500,
+          "type": "debit",
+          "description": "UPI-ZEPTO GROCERIES",
+          "category": "grocery",
+          "merchant": "Zepto"
+        },
+        {
+          "date": "2024-11-01",
+          "amount": 64000,
+          "type": "credit",
+          "description": "NEFT-INFOSYS LTD SALARY NOV",
+          "category": "salary",
+          "merchant": "Infosys Ltd"
+        },
+        {
+          "date": "2024-11-07",
+          "amount": -1500,
+          "type": "debit",
+          "description": "UPI-ZOMATO ORDER",
+          "category": "food",
+          "merchant": "Zomato"
+        },
+        {
+          "date": "2024-11-10",
+          "amount": -8000,
+          "type": "debit",
+          "description": "NEFT-HOUSE RENT NOV",
+          "category": "rent",
+          "merchant": "Landlord"
+        },
+        {
+          "date": "2024-11-18",
+          "amount": -4200,
+          "type": "debit",
+          "description": "UPI-MYNTRA PURCHASE",
+          "category": "shopping",
+          "merchant": "Myntra"
+        },
+        {
+          "date": "2024-12-01",
+          "amount": 78000,
+          "type": "credit",
+          "description": "NEFT-INFOSYS LTD SALARY DEC",
+          "category": "salary",
+          "merchant": "Infosys Ltd"
+        },
+        {
+          "date": "2024-12-05",
+          "amount": -2200,
+          "type": "debit",
+          "description": "UPI-SWIGGY ORDER",
+          "category": "food",
+          "merchant": "Swiggy"
+        },
+        {
+          "date": "2024-12-10",
+          "amount": -8000,
+          "type": "debit",
+          "description": "NEFT-HOUSE RENT DEC",
+          "category": "rent",
+          "merchant": "Landlord"
+        },
+        {
+          "date": "2024-12-20",
+          "amount": -6000,
+          "type": "debit",
+          "description": "UPI-FLIPKART BIG SALE",
+          "category": "shopping",
+          "merchant": "Flipkart"
+        }
+      ]
+    },
+    {
+      "id": "CUST002",
+      "name": "Arjun Mehta",
+      "phone": "+91-9823456789",
+      "email": "arjun.mehta@outlook.com",
+      "age": 34,
+      "city": "Pune",
+      "account_number": "SBI00023456",
+      "account_type": "Savings",
+      "consent": {
+        "opted_in": true,
+        "consent_date": "2023-11-20",
+        "channel": "Branch",
+        "dpdp_version": "1.0"
+      },
+      "profile": {
+        "occupation": "Product Manager",
+        "employer": "TCS",
+        "existing_products": [
+          "Savings Account",
+          "SBI Credit Card Classic"
+        ],
+        "credit_score": 768,
+        "kyc_status": "verified"
+      },
+      "life_event_hint": "city_relocation",
+      "account_balance_history": [
+        {
+          "month": "2024-10",
+          "balance": 95000
+        },
+        {
+          "month": "2024-11",
+          "balance": 72000
+        },
+        {
+          "month": "2024-12",
+          "balance": 68000
+        }
+      ],
+      "transactions": [
+        {
+          "date": "2024-10-01",
+          "amount": 95000,
+          "type": "credit",
+          "description": "NEFT-TCS SALARY OCT",
+          "category": "salary",
+          "merchant": "TCS"
+        },
+        {
+          "date": "2024-10-03",
+          "amount": -12000,
+          "type": "debit",
+          "description": "NEFT-HOUSE RENT PUNE OCT",
+          "category": "rent",
+          "merchant": "Landlord Pune"
+        },
+        {
+          "date": "2024-10-08",
+          "amount": -800,
+          "type": "debit",
+          "description": "UPI-D-MART PUNE GROCERIES",
+          "category": "grocery",
+          "merchant": "DMart Pune"
+        },
+        {
+          "date": "2024-10-15",
+          "amount": -600,
+          "type": "debit",
+          "description": "UPI-CAFE COFFEE DAY PUNE",
+          "category": "food",
+          "merchant": "CCD Pune"
+        },
+        {
+          "date": "2024-10-28",
+          "amount": -2500,
+          "type": "debit",
+          "description": "UPI-PETROL PUMP PUNE",
+          "category": "fuel",
+          "merchant": "HP Petrol Pune"
+        },
+        {
+          "date": "2024-11-01",
+          "amount": 95000,
+          "type": "credit",
+          "description": "NEFT-TCS SALARY NOV",
+          "category": "salary",
+          "merchant": "TCS"
+        },
+        {
+          "date": "2024-11-04",
+          "amount": -45000,
+          "type": "debit",
+          "description": "NEFT-PACKERS AND MOVERS SHIFTING",
+          "category": "moving",
+          "merchant": "Safe Movers"
+        },
+        {
+          "date": "2024-11-05",
+          "amount": -18000,
+          "type": "debit",
+          "description": "NEFT-HOUSE RENT BENGALURU DEC ADV",
+          "category": "rent",
+          "merchant": "Landlord Bengaluru"
+        },
+        {
+          "date": "2024-11-12",
+          "amount": -900,
+          "type": "debit",
+          "description": "UPI-MORE SUPERMARKET BENGALURU",
+          "category": "grocery",
+          "merchant": "More Supermarket Bengaluru"
+        },
+        {
+          "date": "2024-11-18",
+          "amount": -650,
+          "type": "debit",
+          "description": "UPI-STARBUCKS KORAMANGALA BENGALURU",
+          "category": "food",
+          "merchant": "Starbucks Bengaluru"
+        },
+        {
+          "date": "2024-12-01",
+          "amount": 95000,
+          "type": "credit",
+          "description": "NEFT-TCS SALARY DEC",
+          "category": "salary",
+          "merchant": "TCS"
+        },
+        {
+          "date": "2024-12-03",
+          "amount": -18000,
+          "type": "debit",
+          "description": "NEFT-HOUSE RENT BENGALURU DEC",
+          "category": "rent",
+          "merchant": "Landlord Bengaluru"
+        },
+        {
+          "date": "2024-12-10",
+          "amount": -1100,
+          "type": "debit",
+          "description": "UPI-LULU HYPERMARKET BENGALURU",
+          "category": "grocery",
+          "merchant": "Lulu Bengaluru"
+        },
+        {
+          "date": "2024-12-15",
+          "amount": -3200,
+          "type": "debit",
+          "description": "UPI-NAMMA METRO CARD RECHARGE BENGALURU",
+          "category": "transport",
+          "merchant": "Namma Metro"
+        }
+      ]
+    },
+    {
+      "id": "CUST003",
+      "name": "Sunita Devi",
+      "phone": "+91-9712345678",
+      "email": "sunita.devi@yahoo.com",
+      "age": 42,
+      "city": "Lucknow",
+      "account_number": "SBI00034567",
+      "account_type": "Savings",
+      "consent": {
+        "opted_in": true,
+        "consent_date": "2024-03-10",
+        "channel": "YONO App",
+        "dpdp_version": "1.0"
+      },
+      "profile": {
+        "occupation": "Government Teacher",
+        "employer": "UP State Govt",
+        "existing_products": [
+          "Savings Account",
+          "PPF Account"
+        ],
+        "credit_score": 695,
+        "kyc_status": "verified"
+      },
+      "life_event_hint": "new_emi_detected",
+      "account_balance_history": [
+        {
+          "month": "2024-10",
+          "balance": 38000
+        },
+        {
+          "month": "2024-11",
+          "balance": 29000
+        },
+        {
+          "month": "2024-12",
+          "balance": 22000
+        }
+      ],
+      "transactions": [
+        {
+          "date": "2024-10-01",
+          "amount": 48000,
+          "type": "credit",
+          "description": "NEFT-UP GOVT SALARY OCT",
+          "category": "salary",
+          "merchant": "UP Govt"
+        },
+        {
+          "date": "2024-10-05",
+          "amount": -5000,
+          "type": "debit",
+          "description": "UPI-HOUSE RENT OCT",
+          "category": "rent",
+          "merchant": "Landlord"
+        },
+        {
+          "date": "2024-10-08",
+          "amount": -1200,
+          "type": "debit",
+          "description": "UPI-BIG BAZAAR LUCKNOW GROCERY",
+          "category": "grocery",
+          "merchant": "Big Bazaar"
+        },
+        {
+          "date": "2024-10-15",
+          "amount": -800,
+          "type": "debit",
+          "description": "UPI-SCHOOL FEES WARD",
+          "category": "education",
+          "merchant": "Delhi Public School"
+        },
+        {
+          "date": "2024-11-01",
+          "amount": 48000,
+          "type": "credit",
+          "description": "NEFT-UP GOVT SALARY NOV",
+          "category": "salary",
+          "merchant": "UP Govt"
+        },
+        {
+          "date": "2024-11-03",
+          "amount": -12500,
+          "type": "debit",
+          "description": "ACH-HDFC HOME LOAN EMI NOV",
+          "category": "emi",
+          "merchant": "HDFC Home Loan"
+        },
+        {
+          "date": "2024-11-05",
+          "amount": -5000,
+          "type": "debit",
+          "description": "UPI-HOUSE RENT NOV",
+          "category": "rent",
+          "merchant": "Landlord"
+        },
+        {
+          "date": "2024-11-10",
+          "amount": -1400,
+          "type": "debit",
+          "description": "UPI-RELIANCE FRESH GROCERY",
+          "category": "grocery",
+          "merchant": "Reliance Fresh"
+        },
+        {
+          "date": "2024-12-01",
+          "amount": 48000,
+          "type": "credit",
+          "description": "NEFT-UP GOVT SALARY DEC",
+          "category": "salary",
+          "merchant": "UP Govt"
+        },
+        {
+          "date": "2024-12-03",
+          "amount": -12500,
+          "type": "debit",
+          "description": "ACH-HDFC HOME LOAN EMI DEC",
+          "category": "emi",
+          "merchant": "HDFC Home Loan"
+        },
+        {
+          "date": "2024-12-05",
+          "amount": -5000,
+          "type": "debit",
+          "description": "UPI-HOUSE RENT DEC",
+          "category": "rent",
+          "merchant": "Landlord"
+        },
+        {
+          "date": "2024-12-12",
+          "amount": -1300,
+          "type": "debit",
+          "description": "UPI-D-MART LUCKNOW GROCERY",
+          "category": "grocery",
+          "merchant": "DMart"
+        }
+      ]
+    },
+    {
+      "id": "CUST004",
+      "name": "Rahul Verma",
+      "phone": "+91-9654321098",
+      "email": "rahul.verma@gmail.com",
+      "age": 31,
+      "city": "Hyderabad",
+      "account_number": "SBI00045678",
+      "account_type": "Savings",
+      "consent": {
+        "opted_in": true,
+        "consent_date": "2024-02-28",
+        "channel": "YONO App",
+        "dpdp_version": "1.0"
+      },
+      "profile": {
+        "occupation": "Data Analyst",
+        "employer": "Deloitte India",
+        "existing_products": [
+          "Savings Account",
+          "SBI Debit Card"
+        ],
+        "credit_score": 710,
+        "kyc_status": "verified"
+      },
+      "life_event_hint": "insurance_gap",
+      "account_balance_history": [
+        {
+          "month": "2024-10",
+          "balance": 88000
+        },
+        {
+          "month": "2024-11",
+          "balance": 74000
+        },
+        {
+          "month": "2024-12",
+          "balance": 91000
+        }
+      ],
+      "transactions": [
+        {
+          "date": "2024-10-01",
+          "amount": 72000,
+          "type": "credit",
+          "description": "NEFT-DELOITTE INDIA SALARY OCT",
+          "category": "salary",
+          "merchant": "Deloitte"
+        },
+        {
+          "date": "2024-10-04",
+          "amount": -14000,
+          "type": "debit",
+          "description": "NEFT-HOUSE RENT HYD OCT",
+          "category": "rent",
+          "merchant": "Landlord HYD"
+        },
+        {
+          "date": "2024-10-08",
+          "amount": -2200,
+          "type": "debit",
+          "description": "UPI-ZEPTO HYDERABAD",
+          "category": "grocery",
+          "merchant": "Zepto"
+        },
+        {
+          "date": "2024-10-20",
+          "amount": -5500,
+          "type": "debit",
+          "description": "UPI-AMAZON ELECTRONICS",
+          "category": "shopping",
+          "merchant": "Amazon"
+        },
+        {
+          "date": "2024-11-01",
+          "amount": 72000,
+          "type": "credit",
+          "description": "NEFT-DELOITTE INDIA SALARY NOV",
+          "category": "salary",
+          "merchant": "Deloitte"
+        },
+        {
+          "date": "2024-11-04",
+          "amount": -14000,
+          "type": "debit",
+          "description": "NEFT-HOUSE RENT HYD NOV",
+          "category": "rent",
+          "merchant": "Landlord HYD"
+        },
+        {
+          "date": "2024-11-10",
+          "amount": -1800,
+          "type": "debit",
+          "description": "UPI-SWIGGY HYDERABAD",
+          "category": "food",
+          "merchant": "Swiggy"
+        },
+        {
+          "date": "2024-11-22",
+          "amount": -8000,
+          "type": "debit",
+          "description": "UPI-CROMA HYDERABAD ELECTRONICS",
+          "category": "shopping",
+          "merchant": "Croma"
+        },
+        {
+          "date": "2024-12-01",
+          "amount": 72000,
+          "type": "credit",
+          "description": "NEFT-DELOITTE INDIA SALARY DEC",
+          "category": "salary",
+          "merchant": "Deloitte"
+        },
+        {
+          "date": "2024-12-04",
+          "amount": -14000,
+          "type": "debit",
+          "description": "NEFT-HOUSE RENT HYD DEC",
+          "category": "rent",
+          "merchant": "Landlord HYD"
+        },
+        {
+          "date": "2024-12-15",
+          "amount": -3200,
+          "type": "debit",
+          "description": "UPI-INOX MOVIES HYDERABAD",
+          "category": "entertainment",
+          "merchant": "INOX"
+        },
+        {
+          "date": "2024-12-22",
+          "amount": -4500,
+          "type": "debit",
+          "description": "UPI-LIFESTYLE STORE HYDERABAD",
+          "category": "shopping",
+          "merchant": "Lifestyle"
+        }
+      ],
+      "insurance_note": "No insurance premium debit found in last 6 months across all categories"
+    },
+    {
+      "id": "CUST005",
+      "name": "Kavya Reddy",
+      "phone": "+91-9543210987",
+      "email": "kavya.reddy@gmail.com",
+      "age": 27,
+      "city": "Chennai",
+      "account_number": "SBI00056789",
+      "account_type": "Savings",
+      "consent": {
+        "opted_in": true,
+        "consent_date": "2024-04-05",
+        "channel": "YONO App",
+        "dpdp_version": "1.0"
+      },
+      "profile": {
+        "occupation": "UX Designer",
+        "employer": "Zoho Corporation",
+        "existing_products": [
+          "Savings Account",
+          "SBI Debit Card",
+          "RD Account"
+        ],
+        "credit_score": 728,
+        "kyc_status": "verified"
+      },
+      "life_event_hint": "marriage_spend_spike",
+      "account_balance_history": [
+        {
+          "month": "2024-10",
+          "balance": 145000
+        },
+        {
+          "month": "2024-11",
+          "balance": 32000
+        },
+        {
+          "month": "2024-12",
+          "balance": 61000
+        }
+      ],
+      "transactions": [
+        {
+          "date": "2024-10-01",
+          "amount": 58000,
+          "type": "credit",
+          "description": "NEFT-ZOHO CORP SALARY OCT",
+          "category": "salary",
+          "merchant": "Zoho"
+        },
+        {
+          "date": "2024-10-04",
+          "amount": -9000,
+          "type": "debit",
+          "description": "NEFT-HOUSE RENT CHENNAI OCT",
+          "category": "rent",
+          "merchant": "Landlord"
+        },
+        {
+          "date": "2024-10-08",
+          "amount": -1500,
+          "type": "debit",
+          "description": "UPI-NILGIRIS GROCERY CHENNAI",
+          "category": "grocery",
+          "merchant": "Nilgiris"
+        },
+        {
+          "date": "2024-10-15",
+          "amount": 100000,
+          "type": "credit",
+          "description": "NEFT-FAMILY TRANSFER MARRIAGE GIFT",
+          "category": "transfer",
+          "merchant": "Family"
+        },
+        {
+          "date": "2024-11-01",
+          "amount": 58000,
+          "type": "credit",
+          "description": "NEFT-ZOHO CORP SALARY NOV",
+          "category": "salary",
+          "merchant": "Zoho"
+        },
+        {
+          "date": "2024-11-03",
+          "amount": -85000,
+          "type": "debit",
+          "description": "NEFT-WEDDING HALL BOOKING ADVANCE",
+          "category": "wedding",
+          "merchant": "Grand Kalyana Mahal"
+        },
+        {
+          "date": "2024-11-08",
+          "amount": -42000,
+          "type": "debit",
+          "description": "UPI-KALYAN JEWELLERS CHENNAI",
+          "category": "wedding",
+          "merchant": "Kalyan Jewellers"
+        },
+        {
+          "date": "2024-11-15",
+          "amount": -28000,
+          "type": "debit",
+          "description": "UPI-BRIDAL STUDIO CHENNAI PHOTOGRAPHY",
+          "category": "wedding",
+          "merchant": "Bridal Studio"
+        },
+        {
+          "date": "2024-11-22",
+          "amount": -12000,
+          "type": "debit",
+          "description": "UPI-MEENAKSHI SILKS SAREE PURCHASE",
+          "category": "wedding",
+          "merchant": "Meenakshi Silks"
+        },
+        {
+          "date": "2024-12-01",
+          "amount": 58000,
+          "type": "credit",
+          "description": "NEFT-ZOHO CORP SALARY DEC",
+          "category": "salary",
+          "merchant": "Zoho"
+        },
+        {
+          "date": "2024-12-05",
+          "amount": -9000,
+          "type": "debit",
+          "description": "NEFT-HOUSE RENT DEC",
+          "category": "rent",
+          "merchant": "Landlord"
+        },
+        {
+          "date": "2024-12-10",
+          "amount": -18000,
+          "type": "debit",
+          "description": "UPI-HONEYMOON HOTEL BOOKING MALDIVES",
+          "category": "travel",
+          "merchant": "MakeMyTrip"
+        },
+        {
+          "date": "2024-12-18",
+          "amount": 30000,
+          "type": "credit",
+          "description": "IMPS-WEDDING GIFT FROM RELATIVES",
+          "category": "transfer",
+          "merchant": "Relatives"
+        }
+      ]
+    },
+    {
+      "id": "CUST006",
+      "name": "Deepak Nair",
+      "phone": "+91-9432109876",
+      "email": "deepak.nair@hotmail.com",
+      "age": 38,
+      "city": "Kochi",
+      "account_number": "SBI00067890",
+      "account_type": "Savings",
+      "consent": {
+        "opted_in": true,
+        "consent_date": "2024-01-08",
+        "channel": "Branch",
+        "dpdp_version": "1.0"
+      },
+      "profile": {
+        "occupation": "Senior Software Architect",
+        "employer": "UST Global",
+        "existing_products": [
+          "Savings Account",
+          "SBI Credit Card Premium",
+          "SBI Life Insurance"
+        ],
+        "credit_score": 801,
+        "kyc_status": "verified"
+      },
+      "life_event_hint": "new_baby_detected",
+      "account_balance_history": [
+        {
+          "month": "2024-10",
+          "balance": 210000
+        },
+        {
+          "month": "2024-11",
+          "balance": 168000
+        },
+        {
+          "month": "2024-12",
+          "balance": 134000
+        }
+      ],
+      "transactions": [
+        {
+          "date": "2024-10-01",
+          "amount": 120000,
+          "type": "credit",
+          "description": "NEFT-UST GLOBAL SALARY OCT",
+          "category": "salary",
+          "merchant": "UST Global"
+        },
+        {
+          "date": "2024-10-04",
+          "amount": -22000,
+          "type": "debit",
+          "description": "NEFT-HOME LOAN EMI OCT SBI",
+          "category": "emi",
+          "merchant": "SBI Home Loan"
+        },
+        {
+          "date": "2024-10-08",
+          "amount": -4500,
+          "type": "debit",
+          "description": "UPI-LULU MALL KOCHI GROCERY",
+          "category": "grocery",
+          "merchant": "Lulu Kochi"
+        },
+        {
+          "date": "2024-10-15",
+          "amount": -8500,
+          "type": "debit",
+          "description": "UPI-AMRITA HOSPITAL KOCHI CONSULTATION",
+          "category": "medical",
+          "merchant": "Amrita Hospital"
+        },
+        {
+          "date": "2024-10-20",
+          "amount": -3200,
+          "type": "debit",
+          "description": "UPI-APOLLO PHARMACY PRENATAL VITAMINS",
+          "category": "medical",
+          "merchant": "Apollo Pharmacy"
+        },
+        {
+          "date": "2024-11-01",
+          "amount": 120000,
+          "type": "credit",
+          "description": "NEFT-UST GLOBAL SALARY NOV",
+          "category": "salary",
+          "merchant": "UST Global"
+        },
+        {
+          "date": "2024-11-04",
+          "amount": -22000,
+          "type": "debit",
+          "description": "NEFT-HOME LOAN EMI NOV SBI",
+          "category": "emi",
+          "merchant": "SBI Home Loan"
+        },
+        {
+          "date": "2024-11-10",
+          "amount": -65000,
+          "type": "debit",
+          "description": "NEFT-AMRITA HOSPITAL KOCHI DELIVERY CHARGES",
+          "category": "medical",
+          "merchant": "Amrita Hospital"
+        },
+        {
+          "date": "2024-11-15",
+          "amount": -12000,
+          "type": "debit",
+          "description": "UPI-FIRSTCRY BABY PRODUCTS KOCHI",
+          "category": "baby",
+          "merchant": "FirstCry"
+        },
+        {
+          "date": "2024-11-22",
+          "amount": -8500,
+          "type": "debit",
+          "description": "UPI-MOTHERCARE BABY ESSENTIALS",
+          "category": "baby",
+          "merchant": "Mothercare"
+        },
+        {
+          "date": "2024-12-01",
+          "amount": 120000,
+          "type": "credit",
+          "description": "NEFT-UST GLOBAL SALARY DEC",
+          "category": "salary",
+          "merchant": "UST Global"
+        },
+        {
+          "date": "2024-12-04",
+          "amount": -22000,
+          "type": "debit",
+          "description": "NEFT-HOME LOAN EMI DEC SBI",
+          "category": "emi",
+          "merchant": "SBI Home Loan"
+        },
+        {
+          "date": "2024-12-08",
+          "amount": -6800,
+          "type": "debit",
+          "description": "UPI-JOHNSONS BABY PRODUCTS AMAZON",
+          "category": "baby",
+          "merchant": "Amazon Baby"
+        },
+        {
+          "date": "2024-12-12",
+          "amount": -4200,
+          "type": "debit",
+          "description": "UPI-APOLLO PHARMACY BABY FORMULA",
+          "category": "baby",
+          "merchant": "Apollo Pharmacy"
+        },
+        {
+          "date": "2024-12-18",
+          "amount": -9500,
+          "type": "debit",
+          "description": "UPI-KIDDIELAND BABY FURNITURE KOCHI",
+          "category": "baby",
+          "merchant": "Kiddieland"
+        }
+      ]
+    },
+    {
+      "id": "CUST007",
+      "name": "Meera Pillai",
+      "phone": "+91-9321098765",
+      "email": "meera.pillai@gmail.com",
+      "age": 26,
+      "city": "Thiruvananthapuram",
+      "account_number": "SBI00078901",
+      "account_type": "Savings",
+      "consent": {
+        "opted_in": true,
+        "consent_date": "2024-05-12",
+        "channel": "YONO App",
+        "dpdp_version": "1.0"
+      },
+      "profile": {
+        "occupation": "Junior Doctor",
+        "employer": "Govt Medical College",
+        "existing_products": [
+          "Savings Account"
+        ],
+        "credit_score": 698,
+        "kyc_status": "verified"
+      },
+      "life_event_hint": "salary_hike",
+      "account_balance_history": [
+        {
+          "month": "2024-10",
+          "balance": 28000
+        },
+        {
+          "month": "2024-11",
+          "balance": 41000
+        },
+        {
+          "month": "2024-12",
+          "balance": 58000
+        }
+      ],
+      "transactions": [
+        {
+          "date": "2024-10-01",
+          "amount": 45000,
+          "type": "credit",
+          "description": "NEFT-GOVT MEDICAL COLLEGE SALARY OCT",
+          "category": "salary",
+          "merchant": "Govt Medical College"
+        },
+        {
+          "date": "2024-10-05",
+          "amount": -4000,
+          "type": "debit",
+          "description": "UPI-HOUSE RENT OCT",
+          "category": "rent",
+          "merchant": "Landlord"
+        },
+        {
+          "date": "2024-10-12",
+          "amount": -2500,
+          "type": "debit",
+          "description": "UPI-MEDICAL BOOKS AMAZON",
+          "category": "education",
+          "merchant": "Amazon"
+        },
+        {
+          "date": "2024-11-01",
+          "amount": 58000,
+          "type": "credit",
+          "description": "NEFT-GOVT MEDICAL COLLEGE SALARY NOV REVISED",
+          "category": "salary",
+          "merchant": "Govt Medical College"
+        },
+        {
+          "date": "2024-11-06",
+          "amount": -4000,
+          "type": "debit",
+          "description": "UPI-HOUSE RENT NOV",
+          "category": "rent",
+          "merchant": "Landlord"
+        },
+        {
+          "date": "2024-11-15",
+          "amount": -3200,
+          "type": "debit",
+          "description": "UPI-CROMA LAPTOP",
+          "category": "shopping",
+          "merchant": "Croma"
+        },
+        {
+          "date": "2024-12-01",
+          "amount": 72000,
+          "type": "credit",
+          "description": "NEFT-GOVT MEDICAL COLLEGE SALARY DEC REVISED",
+          "category": "salary",
+          "merchant": "Govt Medical College"
+        },
+        {
+          "date": "2024-12-05",
+          "amount": -4000,
+          "type": "debit",
+          "description": "UPI-HOUSE RENT DEC",
+          "category": "rent",
+          "merchant": "Landlord"
+        },
+        {
+          "date": "2024-12-18",
+          "amount": -5500,
+          "type": "debit",
+          "description": "UPI-AMAZON SHOPPING",
+          "category": "shopping",
+          "merchant": "Amazon"
+        }
+      ]
+    },
+    {
+      "id": "CUST008",
+      "name": "Ravi Kumar",
+      "phone": "+91-9210987654",
+      "email": "ravi.kumar@yahoo.com",
+      "age": 45,
+      "city": "Patna",
+      "account_number": "SBI00089012",
+      "account_type": "Savings",
+      "consent": {
+        "opted_in": true,
+        "consent_date": "2023-08-14",
+        "channel": "Branch",
+        "dpdp_version": "1.0"
+      },
+      "profile": {
+        "occupation": "Small Business Owner",
+        "employer": "Self-Employed",
+        "existing_products": [
+          "Savings Account",
+          "Current Account",
+          "SBI Debit Card"
+        ],
+        "credit_score": 652,
+        "kyc_status": "verified"
+      },
+      "life_event_hint": "insurance_gap",
+      "account_balance_history": [
+        {
+          "month": "2024-10",
+          "balance": 185000
+        },
+        {
+          "month": "2024-11",
+          "balance": 210000
+        },
+        {
+          "month": "2024-12",
+          "balance": 195000
+        }
+      ],
+      "transactions": [
+        {
+          "date": "2024-10-05",
+          "amount": 120000,
+          "type": "credit",
+          "description": "NEFT-BUSINESS REVENUE OCT",
+          "category": "salary",
+          "merchant": "Business"
+        },
+        {
+          "date": "2024-10-10",
+          "amount": -35000,
+          "type": "debit",
+          "description": "NEFT-WHOLESALE STOCK PURCHASE",
+          "category": "business",
+          "merchant": "Wholesale Market"
+        },
+        {
+          "date": "2024-10-20",
+          "amount": -8000,
+          "type": "debit",
+          "description": "UPI-STAFF SALARY OCT",
+          "category": "business",
+          "merchant": "Employees"
+        },
+        {
+          "date": "2024-11-03",
+          "amount": 145000,
+          "type": "credit",
+          "description": "NEFT-BUSINESS REVENUE NOV",
+          "category": "salary",
+          "merchant": "Business"
+        },
+        {
+          "date": "2024-11-08",
+          "amount": -40000,
+          "type": "debit",
+          "description": "NEFT-WHOLESALE STOCK PURCHASE NOV",
+          "category": "business",
+          "merchant": "Wholesale Market"
+        },
+        {
+          "date": "2024-11-22",
+          "amount": -12000,
+          "type": "debit",
+          "description": "UPI-STAFF SALARY NOV",
+          "category": "business",
+          "merchant": "Employees"
+        },
+        {
+          "date": "2024-12-02",
+          "amount": 130000,
+          "type": "credit",
+          "description": "NEFT-BUSINESS REVENUE DEC",
+          "category": "salary",
+          "merchant": "Business"
+        },
+        {
+          "date": "2024-12-07",
+          "amount": -38000,
+          "type": "debit",
+          "description": "NEFT-WHOLESALE STOCK PURCHASE DEC",
+          "category": "business",
+          "merchant": "Wholesale Market"
+        },
+        {
+          "date": "2024-12-25",
+          "amount": -15000,
+          "type": "debit",
+          "description": "UPI-STAFF BONUS DEC",
+          "category": "business",
+          "merchant": "Employees"
+        }
+      ],
+      "insurance_note": "High income business owner, zero insurance premium found."
+    },
+    {
+      "id": "CUST009",
+      "name": "Ananya Das",
+      "phone": "+91-9109876543",
+      "email": "ananya.das@gmail.com",
+      "age": 30,
+      "city": "Kolkata",
+      "account_number": "SBI00090123",
+      "account_type": "Savings",
+      "consent": {
+        "opted_in": true,
+        "consent_date": "2024-06-01",
+        "channel": "YONO App",
+        "dpdp_version": "1.0"
+      },
+      "profile": {
+        "occupation": "Marketing Manager",
+        "employer": "ITC Limited",
+        "existing_products": [
+          "Savings Account",
+          "SBI Debit Card",
+          "FD Account"
+        ],
+        "credit_score": 748,
+        "kyc_status": "verified"
+      },
+      "life_event_hint": "new_baby_detected",
+      "account_balance_history": [
+        {
+          "month": "2024-10",
+          "balance": 112000
+        },
+        {
+          "month": "2024-11",
+          "balance": 68000
+        },
+        {
+          "month": "2024-12",
+          "balance": 75000
+        }
+      ],
+      "transactions": [
+        {
+          "date": "2024-10-01",
+          "amount": 78000,
+          "type": "credit",
+          "description": "NEFT-ITC LIMITED SALARY OCT",
+          "category": "salary",
+          "merchant": "ITC Limited"
+        },
+        {
+          "date": "2024-10-04",
+          "amount": -15000,
+          "type": "debit",
+          "description": "NEFT-FLAT RENT KOLKATA OCT",
+          "category": "rent",
+          "merchant": "Landlord Kolkata"
+        },
+        {
+          "date": "2024-10-10",
+          "amount": -12000,
+          "type": "debit",
+          "description": "UPI-APOLLO CLINIC PRENATAL CHECKUP",
+          "category": "medical",
+          "merchant": "Apollo Clinic"
+        },
+        {
+          "date": "2024-10-15",
+          "amount": -3500,
+          "type": "debit",
+          "description": "UPI-MOTHERCARE PRAM KOLKATA",
+          "category": "baby",
+          "merchant": "Mothercare"
+        },
+        {
+          "date": "2024-11-01",
+          "amount": 78000,
+          "type": "credit",
+          "description": "NEFT-ITC LIMITED SALARY NOV",
+          "category": "salary",
+          "merchant": "ITC Limited"
+        },
+        {
+          "date": "2024-11-05",
+          "amount": -55000,
+          "type": "debit",
+          "description": "NEFT-APOLLO HOSPITAL DELIVERY CHARGES",
+          "category": "medical",
+          "merchant": "Apollo Hospital Kolkata"
+        },
+        {
+          "date": "2024-11-12",
+          "amount": -8500,
+          "type": "debit",
+          "description": "UPI-FIRSTCRY BABY ESSENTIALS KOLKATA",
+          "category": "baby",
+          "merchant": "FirstCry"
+        },
+        {
+          "date": "2024-11-20",
+          "amount": -4200,
+          "type": "debit",
+          "description": "UPI-JOHNSON BABY PRODUCTS AMAZON",
+          "category": "baby",
+          "merchant": "Amazon Baby"
+        },
+        {
+          "date": "2024-12-01",
+          "amount": 78000,
+          "type": "credit",
+          "description": "NEFT-ITC LIMITED SALARY DEC",
+          "category": "salary",
+          "merchant": "ITC Limited"
+        },
+        {
+          "date": "2024-12-05",
+          "amount": -15000,
+          "type": "debit",
+          "description": "NEFT-FLAT RENT KOLKATA DEC",
+          "category": "rent",
+          "merchant": "Landlord Kolkata"
+        },
+        {
+          "date": "2024-12-10",
+          "amount": -6800,
+          "type": "debit",
+          "description": "UPI-KIDDIELAND BABY FURNITURE KOLKATA",
+          "category": "baby",
+          "merchant": "Kiddieland"
+        },
+        {
+          "date": "2024-12-18",
+          "amount": -3100,
+          "type": "debit",
+          "description": "UPI-APOLLO PHARMACY BABY FORMULA KOLKATA",
+          "category": "baby",
+          "merchant": "Apollo Pharmacy"
+        }
+      ]
+    },
+    {
+      "id": "CUST010",
+      "name": "Suresh Gowda",
+      "phone": "+91-9098765432",
+      "email": "suresh.gowda@gmail.com",
+      "age": 33,
+      "city": "Mysuru",
+      "account_number": "SBI00101234",
+      "account_type": "Savings",
+      "consent": {
+        "opted_in": true,
+        "consent_date": "2024-02-20",
+        "channel": "Branch",
+        "dpdp_version": "1.0"
+      },
+      "profile": {
+        "occupation": "Civil Engineer",
+        "employer": "L&T Construction",
+        "existing_products": [
+          "Savings Account",
+          "SBI Credit Card Classic"
+        ],
+        "credit_score": 724,
+        "kyc_status": "verified"
+      },
+      "life_event_hint": "city_relocation",
+      "account_balance_history": [
+        {
+          "month": "2024-10",
+          "balance": 78000
+        },
+        {
+          "month": "2024-11",
+          "balance": 52000
+        },
+        {
+          "month": "2024-12",
+          "balance": 61000
+        }
+      ],
+      "transactions": [
+        {
+          "date": "2024-10-01",
+          "amount": 82000,
+          "type": "credit",
+          "description": "NEFT-L&T CONSTRUCTION SALARY OCT",
+          "category": "salary",
+          "merchant": "L&T Construction"
+        },
+        {
+          "date": "2024-10-05",
+          "amount": -10000,
+          "type": "debit",
+          "description": "UPI-HOUSE RENT MYSURU OCT",
+          "category": "rent",
+          "merchant": "Landlord Mysuru"
+        },
+        {
+          "date": "2024-10-12",
+          "amount": -2800,
+          "type": "debit",
+          "description": "UPI-NILGIRIS GROCERY MYSURU",
+          "category": "grocery",
+          "merchant": "Nilgiris Mysuru"
+        },
+        {
+          "date": "2024-11-01",
+          "amount": 82000,
+          "type": "credit",
+          "description": "NEFT-L&T CONSTRUCTION SALARY NOV",
+          "category": "salary",
+          "merchant": "L&T Construction"
+        },
+        {
+          "date": "2024-11-03",
+          "amount": -38000,
+          "type": "debit",
+          "description": "NEFT-SAFE PACKERS MOVERS MYSURU TO PUNE",
+          "category": "moving",
+          "merchant": "Safe Movers"
+        },
+        {
+          "date": "2024-11-06",
+          "amount": -16000,
+          "type": "debit",
+          "description": "NEFT-HOUSE RENT PUNE NOV ADVANCE",
+          "category": "rent",
+          "merchant": "Landlord Pune"
+        },
+        {
+          "date": "2024-11-15",
+          "amount": -900,
+          "type": "debit",
+          "description": "UPI-D-MART PUNE GROCERY",
+          "category": "grocery",
+          "merchant": "DMart Pune"
+        },
+        {
+          "date": "2024-12-01",
+          "amount": 82000,
+          "type": "credit",
+          "description": "NEFT-L&T CONSTRUCTION SALARY DEC",
+          "category": "salary",
+          "merchant": "L&T Construction"
+        },
+        {
+          "date": "2024-12-04",
+          "amount": -16000,
+          "type": "debit",
+          "description": "NEFT-HOUSE RENT PUNE DEC",
+          "category": "rent",
+          "merchant": "Landlord Pune"
+        },
+        {
+          "date": "2024-12-10",
+          "amount": -1100,
+          "type": "debit",
+          "description": "UPI-BIG BASKET PUNE GROCERY",
+          "category": "grocery",
+          "merchant": "BigBasket Pune"
+        },
+        {
+          "date": "2024-12-18",
+          "amount": -3200,
+          "type": "debit",
+          "description": "UPI-METRO CARD RECHARGE PUNE",
+          "category": "transport",
+          "merchant": "Pune Metro"
+        }
+      ]
+    },
+    {
+      "id": "CUST011",
+      "name": "Fatima Sheikh",
+      "phone": "+91-8987654321",
+      "email": "fatima.sheikh@gmail.com",
+      "age": 28,
+      "city": "Pune",
+      "account_number": "SBI00112345",
+      "account_type": "Savings",
+      "consent": {
+        "opted_in": true,
+        "consent_date": "2024-04-15",
+        "channel": "YONO App",
+        "dpdp_version": "1.0"
+      },
+      "profile": {
+        "occupation": "Frontend Developer",
+        "employer": "Persistent Systems",
+        "existing_products": [
+          "Savings Account",
+          "SBI Debit Card"
+        ],
+        "credit_score": 735,
+        "kyc_status": "verified"
+      },
+      "life_event_hint": "marriage_detected",
+      "account_balance_history": [
+        {
+          "month": "2024-10",
+          "balance": 165000
+        },
+        {
+          "month": "2024-11",
+          "balance": 45000
+        },
+        {
+          "month": "2024-12",
+          "balance": 72000
+        }
+      ],
+      "transactions": [
+        {
+          "date": "2024-10-01",
+          "amount": 62000,
+          "type": "credit",
+          "description": "NEFT-PERSISTENT SYSTEMS SALARY OCT",
+          "category": "salary",
+          "merchant": "Persistent Systems"
+        },
+        {
+          "date": "2024-10-08",
+          "amount": -10000,
+          "type": "debit",
+          "description": "UPI-HOUSE RENT PUNE OCT",
+          "category": "rent",
+          "merchant": "Landlord"
+        },
+        {
+          "date": "2024-10-15",
+          "amount": 110000,
+          "type": "credit",
+          "description": "IMPS-FAMILY TRANSFER NIKAH GIFT",
+          "category": "transfer",
+          "merchant": "Family"
+        },
+        {
+          "date": "2024-11-01",
+          "amount": 62000,
+          "type": "credit",
+          "description": "NEFT-PERSISTENT SYSTEMS SALARY NOV",
+          "category": "salary",
+          "merchant": "Persistent Systems"
+        },
+        {
+          "date": "2024-11-04",
+          "amount": -75000,
+          "type": "debit",
+          "description": "NEFT-WEDDING BANQUET BOOKING PUNE",
+          "category": "wedding",
+          "merchant": "Royal Banquet Pune"
+        },
+        {
+          "date": "2024-11-10",
+          "amount": -48000,
+          "type": "debit",
+          "description": "UPI-TANISHQ JEWELLERY PUNE",
+          "category": "wedding",
+          "merchant": "Tanishq Pune"
+        },
+        {
+          "date": "2024-11-18",
+          "amount": -22000,
+          "type": "debit",
+          "description": "UPI-WEDDING PHOTOGRAPHER PUNE",
+          "category": "wedding",
+          "merchant": "Click Studio"
+        },
+        {
+          "date": "2024-11-25",
+          "amount": -18000,
+          "type": "debit",
+          "description": "UPI-MEHNDI CATERING PUNE",
+          "category": "wedding",
+          "merchant": "Catering Co"
+        },
+        {
+          "date": "2024-12-01",
+          "amount": 62000,
+          "type": "credit",
+          "description": "NEFT-PERSISTENT SYSTEMS SALARY DEC",
+          "category": "salary",
+          "merchant": "Persistent Systems"
+        },
+        {
+          "date": "2024-12-05",
+          "amount": -10000,
+          "type": "debit",
+          "description": "UPI-HOUSE RENT DEC",
+          "category": "rent",
+          "merchant": "Landlord"
+        },
+        {
+          "date": "2024-12-12",
+          "amount": -24000,
+          "type": "debit",
+          "description": "UPI-HONEYMOON BOOKING KASHMIR MAKEMYTRIP",
+          "category": "travel",
+          "merchant": "MakeMyTrip"
+        },
+        {
+          "date": "2024-12-20",
+          "amount": 40000,
+          "type": "credit",
+          "description": "IMPS-WEDDING GIFTS RELATIVES",
+          "category": "transfer",
+          "merchant": "Relatives"
+        }
+      ]
+    },
+    {
+      "id": "CUST012",
+      "name": "Vikram Yadav",
+      "phone": "+91-8876543210",
+      "email": "vikram.yadav@gmail.com",
+      "age": 36,
+      "city": "Jaipur",
+      "account_number": "SBI00123456",
+      "account_type": "Savings",
+      "consent": {
+        "opted_in": true,
+        "consent_date": "2023-12-10",
+        "channel": "Branch",
+        "dpdp_version": "1.0"
+      },
+      "profile": {
+        "occupation": "Bank Manager",
+        "employer": "SBI Branch Jaipur",
+        "existing_products": [
+          "Savings Account",
+          "SBI Credit Card Premium",
+          "PPF Account",
+          "Home Loan"
+        ],
+        "credit_score": 812,
+        "kyc_status": "verified"
+      },
+      "life_event_hint": "new_emi_detected",
+      "account_balance_history": [
+        {
+          "month": "2024-10",
+          "balance": 245000
+        },
+        {
+          "month": "2024-11",
+          "balance": 198000
+        },
+        {
+          "month": "2024-12",
+          "balance": 212000
+        }
+      ],
+      "transactions": [
+        {
+          "date": "2024-10-01",
+          "amount": 95000,
+          "type": "credit",
+          "description": "NEFT-SBI SALARY OCT",
+          "category": "salary",
+          "merchant": "SBI"
+        },
+        {
+          "date": "2024-10-04",
+          "amount": -18000,
+          "type": "debit",
+          "description": "ACH-SBI HOME LOAN EMI OCT",
+          "category": "emi",
+          "merchant": "SBI Home Loan"
+        },
+        {
+          "date": "2024-10-10",
+          "amount": -4500,
+          "type": "debit",
+          "description": "UPI-JAIPUR GROCERY STORE",
+          "category": "grocery",
+          "merchant": "Local Store"
+        },
+        {
+          "date": "2024-11-01",
+          "amount": 95000,
+          "type": "credit",
+          "description": "NEFT-SBI SALARY NOV",
+          "category": "salary",
+          "merchant": "SBI"
+        },
+        {
+          "date": "2024-11-03",
+          "amount": -18000,
+          "type": "debit",
+          "description": "ACH-SBI HOME LOAN EMI NOV",
+          "category": "emi",
+          "merchant": "SBI Home Loan"
+        },
+        {
+          "date": "2024-11-07",
+          "amount": -14500,
+          "type": "debit",
+          "description": "ACH-HDFC CAR LOAN EMI NOV NEW",
+          "category": "emi",
+          "merchant": "HDFC Car Loan"
+        },
+        {
+          "date": "2024-11-15",
+          "amount": -5200,
+          "type": "debit",
+          "description": "UPI-GROCERY JAIPUR",
+          "category": "grocery",
+          "merchant": "Local Store"
+        },
+        {
+          "date": "2024-12-01",
+          "amount": 95000,
+          "type": "credit",
+          "description": "NEFT-SBI SALARY DEC",
+          "category": "salary",
+          "merchant": "SBI"
+        },
+        {
+          "date": "2024-12-03",
+          "amount": -18000,
+          "type": "debit",
+          "description": "ACH-SBI HOME LOAN EMI DEC",
+          "category": "emi",
+          "merchant": "SBI Home Loan"
+        },
+        {
+          "date": "2024-12-07",
+          "amount": -14500,
+          "type": "debit",
+          "description": "ACH-HDFC CAR LOAN EMI DEC",
+          "category": "emi",
+          "merchant": "HDFC Car Loan"
+        },
+        {
+          "date": "2024-12-20",
+          "amount": -8000,
+          "type": "debit",
+          "description": "UPI-AMAZON YEAR END SHOPPING",
+          "category": "shopping",
+          "merchant": "Amazon"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "generated_for": "SBI LifePulse \u2014 Hackathon Demo",
+    "team": "Glucon-D",
+    "event": "SBI Hackathon @ GFF 2026",
+    "currency": "INR",
+    "data_period": "Oct 2024 \u2014 Dec 2024",
+    "life_events_summary": {
+      "CUST001": {
+        "event": "salary_hike",
+        "signal": "Salary jumped from \u20b952K to \u20b978K over 3 months (+50%)",
+        "recommended_product": "SIP Enrollment"
+      },
+      "CUST002": {
+        "event": "city_relocation",
+        "signal": "Merchants shifted from Pune to Bengaluru in Nov. Moving charges, new city rent, Namma Metro.",
+        "recommended_product": "SBI Credit Card Upgrade"
+      },
+      "CUST003": {
+        "event": "new_emi_detected",
+        "signal": "New \u20b912,500 ACH debit from HDFC Home Loan appeared Nov onwards. First-time EMI.",
+        "recommended_product": "Home Loan Insurance / Term Plan"
+      },
+      "CUST004": {
+        "event": "insurance_gap",
+        "signal": "No insurance premium debit in 6 months. High income, no protection.",
+        "recommended_product": "SBI Life Smart Protect Plan"
+      },
+      "CUST005": {
+        "event": "marriage_detected",
+        "signal": "Jewellery, wedding hall, bridal studio, honeymoon bookings in Nov-Dec. Family transfer received.",
+        "recommended_product": "SBI Joint Account + Home Loan Pre-approval"
+      },
+      "CUST006": {
+        "event": "new_baby_detected",
+        "signal": "Hospital delivery charges, FirstCry, Mothercare, baby formula \u2014 consistent baby spend from Nov.",
+        "recommended_product": "SBI Life Child Plan / Sukanya Samriddhi"
+      },
+      "CUST007": {
+        "event": "salary_hike",
+        "signal": "Junior Doctor salary jumped \u20b945K\u2192\u20b972K over 3 months (60% hike)",
+        "recommended_product": "SIP Enrollment"
+      },
+      "CUST008": {
+        "event": "insurance_gap",
+        "signal": "Business owner \u20b91.3L+/month income, zero insurance premium",
+        "recommended_product": "SBI Life Smart Protect Plan"
+      },
+      "CUST009": {
+        "event": "new_baby_detected",
+        "signal": "Hospital delivery + FirstCry + baby formula + Kiddieland",
+        "recommended_product": "SBI Child Plan"
+      },
+      "CUST010": {
+        "event": "city_relocation",
+        "signal": "Movers from Mysuru to Pune, new city merchants, new rent",
+        "recommended_product": "SBI Credit Card Upgrade"
+      },
+      "CUST011": {
+        "event": "marriage_detected",
+        "signal": "Banquet booking, Tanishq jewellery, wedding photographer, honeymoon",
+        "recommended_product": "SBI Joint Account + Home Loan"
+      },
+      "CUST012": {
+        "event": "new_emi_detected",
+        "signal": "New HDFC Car Loan EMI appeared Nov onwards, in addition to existing home loan",
+        "recommended_product": "Term Life Insurance"
+      }
+    },
+    "total_customers": 12
+  }
+}
