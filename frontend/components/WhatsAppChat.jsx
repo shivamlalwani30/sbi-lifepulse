@@ -63,31 +63,40 @@ export default function WhatsAppChat({ customer, session, onBack, onEnrollmentUp
         }),
       });
 
-      if (!res.ok) throw new Error("API error");
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(`HTTP ${res.status}: ${errText}`);
+      }
 
       const data = await res.json();
 
-      // Simulate typing delay for realism
-      // Realistic typing: ~40 chars/second, min 1s, max 4s
-      const typingMs = Math.min(Math.max(data.reply_message?.length * 25 || 1200, 1000), 4000);
+      // Capture all values immediately before async delay (prevents stale closure)
+      const replyText = data.reply_message || "";
+      const newHistory = data.conversation_history || conversationHistory;
+      const newIntent = data.intent || null;
+      const newSentiment = data.sentiment || null;
+      const newStatus = data.enrollment_status || enrollmentStatus;
+
+      // Realistic typing delay based on reply length
+      const typingMs = Math.min(Math.max(replyText.length * 20 || 1000, 800), 3500);
       await new Promise((r) => setTimeout(r, typingMs));
 
       const agentMsg = {
         id: Date.now() + 1,
         from: "agent",
-        text: data.reply_message,
+        text: replyText,
         time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
         status: "read",
       };
 
       setMessages((prev) => [...prev, agentMsg]);
-      setConversationHistory(data.conversation_history || []);
-      if (data.intent) setLastIntent(data.intent);
-      if (data.sentiment) setLastSentiment(data.sentiment);
+      setConversationHistory(newHistory);
+      if (newIntent) setLastIntent(newIntent);
+      if (newSentiment) setLastSentiment(newSentiment);
 
-      if (data.enrollment_status !== enrollmentStatus) {
-        setEnrollmentStatus(data.enrollment_status);
-        onEnrollmentUpdate(data.enrollment_status);
+      if (newStatus !== enrollmentStatus) {
+        setEnrollmentStatus(newStatus);
+        onEnrollmentUpdate(newStatus);
       }
     } catch (err) {
       setMessages((prev) => [

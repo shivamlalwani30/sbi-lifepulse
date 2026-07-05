@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBI LifePulse — Architecture Diagram</title>
+<style>
+  :root{
+    --bg:#070b14; --panel:#0d1629; --panel2:#0a0f1e; --line:#1e2d4a;
+    --ink:#f1f5f9; --sub:#94a3b8; --mute:#475569;
+    --blue:#1a56db; --cyan:#0ea5e9; --violet:#a855f7; --amber:#f59e0b;
+    --mint:#22c55e; --rose:#ec4899; --red:#ef4444;
+    --sans:'Inter',-apple-system,sans-serif; --mono:'JetBrains Mono','SF Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);padding:48px 6vw;-webkit-font-smoothing:antialiased}
+  .head{margin-bottom:44px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--cyan);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--cyan)}
+  h1{font-size:clamp(26px,3.2vw,38px);font-weight:600;letter-spacing:-.01em;max-width:760px}
+  .sub{color:var(--sub);font-size:15px;margin-top:10px;max-width:640px;line-height:1.6}
+
+  .layer{margin-bottom:8px}
+  .layer-label{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .layer-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+  .node{
+    flex:1;min-width:150px;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:16px 14px;position:relative;
+  }
+  .node.accent-top{border-top:2px solid var(--accent)}
+  .node .ic{font-size:20px;margin-bottom:8px}
+  .node .name{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px}
+  .node .desc{font-size:11px;color:var(--sub);line-height:1.5}
+  .node .tag{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:9px;color:var(--accent);background:color-mix(in srgb, var(--accent) 14%, transparent);padding:2px 7px;border-radius:99px}
+
+  .down-arrow{display:flex;justify-content:center;color:var(--mute);font-size:18px;margin:-18px 0 18px}
+
+  .pipeline-strip{
+    display:flex;align-items:stretch;gap:0;margin:30px 0 50px;overflow-x:auto;padding-bottom:12px;
+  }
+  .pstep{
+    flex:0 0 auto;width:168px;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);
+    border-radius:12px;padding:18px 14px;position:relative;
+  }
+  .pstep .pno{font-family:var(--mono);font-size:10px;color:var(--mute)}
+  .pstep .ic{font-size:22px;margin:8px 0}
+  .pstep .name{font-size:13px;font-weight:600;color:var(--ink);line-height:1.3}
+  .pstep .desc{font-size:11px;color:var(--sub);margin-top:6px;line-height:1.5}
+  .parrow{flex:0 0 32px;display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:16px}
+
+  .legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:50px;padding-top:24px;border-top:1px solid var(--line)}
+  .legend-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub)}
+  .legend-dot{width:8px;height:8px;border-radius:50%}
+
+  .footnote{margin-top:36px;font-family:var(--mono);font-size:11px;color:var(--mute);text-align:right}
+
+  @media(max-width:760px){
+    .layer-row{flex-direction:column}
+    .pipeline-strip{flex-direction:column}
+    .parrow{transform:rotate(90deg);flex:0 0 24px}
+  }
+</style>
+</head>
+<body>
+
+<div class="head">
+  <div class="eyebrow">SBI LifePulse — System Architecture</div>
+  <h1>From a raw transaction row to a closed WhatsApp enrollment.</h1>
+  <p class="sub">Four infrastructure layers, six autonomous agents, one continuous pipeline. Built to plug into SBI's existing core-banking data without requiring a system replacement.</p>
+</div>
+
+<!-- ===== LAYER: DATA SOURCE ===== -->
+<div class="layer">
+  <div class="layer-label">01 · Data Layer</div>
+  <div class="layer-row">
+    <div class="node accent-top" style="--accent:#3b82f6"><div class="ic">🏦</div><div class="name">SBI Core Banking</div><div class="desc">Transaction stream, account balances, KYC, existing product holdings</div><span class="tag">SOURCE</span></div>
+    <div class="node accent-top" style="--accent:#3b82f6"><div class="ic">📱</div><div class="name">YONO App Events</div><div class="desc">App engagement signals layered onto transaction context</div><span class="tag">SOURCE</span></div>
+    <div class="node accent-top" style="--accent:#3b82f6"><div class="ic">🗄️</div><div class="name">Customer Profile DB</div><div class="desc">Age, city, credit score, occupation — used for eligibility &amp; localization</div><span class="tag">SOURCE</span></div>
+  </div>
+</div>
+<div class="down-arrow">↓</div>
+
+<!-- ===== AGENT PIPELINE STRIP ===== -->
+<div class="layer">
+  <div class="layer-label">02 · Six-Agent Pipeline (sequential, autonomous)</div>
+  <div class="pipeline-strip">
+    <div class="pstep" style="--accent:#3b82f6"><div class="pno">AGENT 01</div><div class="ic">📊</div><div class="name">Behavior Monitor</div><div class="desc">Pandas scan of 3-month transaction window → behavioral signals</div></div>
+    <div class="parrow">→</div>
+    <div class="pstep" style="--accent:#a855f7"><div class="pno">AGENT 02</div><div class="ic">🎯</div><div class="name">Life Event Detector</div><div class="desc">Rule-scoring across 6 event types, returns confidence %</div></div>
+    <div class="parrow">→</div>
+    <div class="pstep" style="--accent:#ef4444"><div class="pno">GATE</div><div class="ic">🔒</div><div class="name">Fraud Screen</div><div class="desc">6 risk checks block outreach on suspicious accounts</div></div>
+    <div class="parrow">→</div>
+    <div class="pstep" style="--accent:#fb923c"><div class="pno">CHECK</div><div class="ic">✔️</div><div class="name">Eligibility Filter</div><div class="desc">Confirms product fit, falls back if unmatched</div></div>
+    <div class="parrow">→</div>
+    <div class="pstep" style="--accent:#f59e0b"><div class="pno">AGENT 03</div><div class="ic">✍️</div><div class="name">Personalization</div><div class="desc">Claude Sonnet 4.6 drafts message in 1-of-8 languages</div></div>
+    <div class="parrow">→</div>
+    <div class="pstep" style="--accent:#22c55e"><div class="pno">AGENT 04</div><div class="ic">💬</div><div class="name">Conversational Close</div><div class="desc">Claude Sonnet 4.6 negotiates enrollment to completion</div></div>
+    <div class="parrow">→</div>
+    <div class="pstep" style="--accent:#ec4899"><div class="pno">AGENT 05</div><div class="ic">🧠</div><div class="name">Feedback Loop</div><div class="desc">Outcome recalibrates thresholds for next pipeline run</div></div>
+  </div>
+  <div style="font-family:var(--mono);font-size:11px;color:var(--mute);margin-top:-30px">Agent 06 — Intent &amp; Sentiment Classifier — runs in parallel inside Agent 04's conversation loop, zero added latency</div>
+</div>
+<div class="down-arrow">↓</div>
+
+<!-- ===== LAYER: ORCHESTRATION ===== -->
+<div class="layer">
+  <div class="layer-label">03 · Orchestration &amp; State</div>
+  <div class="layer-row">
+    <div class="node accent-top" style="--accent:#a855f7"><div class="ic">🔗</div><div class="name">LangGraph</div><div class="desc">Coordinates the agent sequence and conditional branching</div><span class="tag">ORCHESTRATION</span></div>
+    <div class="node accent-top" style="--accent:#a855f7"><div class="ic">⚡</div><div class="name">FastAPI + asyncio</div><div class="desc">Async API layer, parallel batch processing of customer cohorts</div><span class="tag">ORCHESTRATION</span></div>
+    <div class="node accent-top" style="--accent:#a855f7"><div class="ic">🗃️</div><div class="name">SQLite Session Store</div><div class="desc">Persistent conversation memory, survives restarts, audit trail</div><span class="tag">STATE</span></div>
+    <div class="node accent-top" style="--accent:#a855f7"><div class="ic">🧪</div><div class="name">A/B Test Engine</div><div class="desc">3 message variants tracked, winning variant auto-promoted</div><span class="tag">STATE</span></div>
+  </div>
+</div>
+<div class="down-arrow">↓</div>
+
+<!-- ===== LAYER: DELIVERY ===== -->
+<div class="layer">
+  <div class="layer-label">04 · Delivery &amp; Channel</div>
+  <div class="layer-row">
+    <div class="node accent-top" style="--accent:#22c55e"><div class="ic">📲</div><div class="name">WhatsApp Business API</div><div class="desc">Twilio-integrated delivery, two-way conversational channel</div><span class="tag">CHANNEL</span></div>
+    <div class="node accent-top" style="--accent:#22c55e"><div class="ic">🔗</div><div class="name">YONO Deeplink</div><div class="desc">Pre-filled deeplink for one-tap in-app enrollment, alternate path</div><span class="tag">CHANNEL</span></div>
+    <div class="node accent-top" style="--accent:#22c55e"><div class="ic">📋</div><div class="name">Compliance Audit Log</div><div class="desc">Every consent, opt-out and message timestamped for DPDP review</div><span class="tag">COMPLIANCE</span></div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>Data / Source</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#a855f7"></div>Detection / Orchestration</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>Risk Gate</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Generation (LLM)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>Delivery / Close</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ec4899"></div>Learning Loop</div>
+</div>
+
+<div class="footnote">SBI LifePulse · Team Glucon-D · ET AI Hackathon Phase 2</div>
+
+</body>
+</html>

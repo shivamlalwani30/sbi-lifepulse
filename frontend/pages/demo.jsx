@@ -99,18 +99,29 @@ export default function DemoPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ customer_id: selectedId, message: text, conversation_history: conversationHistory }),
       });
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(`HTTP ${res.status}: ${errText}`);
+      }
       const data = await res.json();
-      await new Promise((r) => setTimeout(r, 800));
-      setChatMessages((prev) => [...prev, { from: "agent", text: data.reply_message, time: now() }]);
-      setConversationHistory(data.conversation_history || []);
-      if (data.enrollment_status === "enrolled") {
+      // Capture reply text immediately before the delay (prevents stale closure issue)
+      const replyText = data.reply_message || "";
+      const newHistory = data.conversation_history || [];
+      const newStatus = data.enrollment_status || "pending";
+      // Realistic typing delay based on reply length
+      const typingMs = Math.min(Math.max((replyText.length || 80) * 18, 800), 3000);
+      await new Promise((r) => setTimeout(r, typingMs));
+      setChatMessages((prev) => [...prev, { from: "agent", text: replyText, time: now() }]);
+      setConversationHistory(newHistory);
+      if (newStatus === "enrolled") {
         setEnrollmentStatus("enrolled");
         setStep("enrolled");
-      } else if (data.enrollment_status === "opted_out") {
+      } else if (newStatus === "opted_out") {
         setEnrollmentStatus("opted_out");
       }
     } catch (e) {
-      setChatMessages((prev) => [...prev, { from: "agent", text: "Error — please try again.", time: now() }]);
+      console.error("Chat error:", e.message);
+      setChatMessages((prev) => [...prev, { from: "agent", text: "Connection error — check backend is running.", time: now() }]);
     } finally {
       setIsTyping(false);
     }

@@ -182,7 +182,11 @@ CHAT_RESPONSES: dict[str, dict[str, str]] = {
 
 def is_offline_mode() -> bool:
     """Return True if we should use cached responses."""
-    return True
+    if os.environ.get("DEMO_OFFLINE_MODE", "").lower() == "true":
+        return True
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        return True
+    return False
 
 
 def get_cached_outreach(customer_id: str) -> str | None:
@@ -197,8 +201,8 @@ def get_cached_chat_response(
     conversation_turns: int,
 ) -> str:
     """Get pre-generated chat response based on intent and product."""
-    # After 3 turns, simulate enrollment completion
-    if conversation_turns >= 3:
+    # After 2 user turns, simulate enrollment completion
+    if conversation_turns >= 2:
         return CHAT_RESPONSES["ENROLLED"]["DEFAULT"]
 
     intent_map = {
@@ -209,7 +213,7 @@ def get_cached_chat_response(
         "HESITATION": "HESITATION",
         "QUESTION": "QUESTION",
         "WRONG_PERSON": "REJECTION",
-        "UNCLEAR": "QUESTION",
+        "UNCLEAR": "STRONG_YES",  # assume positive intent when unclear in demo
     }
 
     intent_key = intent_map.get(intent, "QUESTION")

@@ -276,14 +276,16 @@ async def chat(req: ChatRequest):
 
     # Use offline cache if no API key
     if is_offline_mode():
-        turns = len([m for m in history if m.get("role") == "user"])
+        # Count user turns correctly from full history
+        user_turns = len([m for m in history if m.get("role") == "user"])
         reply = get_cached_chat_response(
             req.customer_id,
             session["event_data"].get("product_code", "SIP_2000"),
             intent_result["intent"],
-            turns,
+            user_turns,
         )
-        enrollment_status = "enrolled" if turns >= 3 else "pending"
+        # Enroll after 2 user turns (turn 0 = first yes, turn 1 = detail, turn 2 = enrolled)
+        enrollment_status = "enrolled" if user_turns >= 2 else "pending"
         updated_history = history + [
             {"role": "user", "content": req.message},
             {"role": "assistant", "content": reply},
@@ -344,12 +346,7 @@ async def run_batch(req: BatchRequest):
     async def process_one(customer: dict) -> dict:
         behavior = behavior_monitor.run(customer)
         detection = life_event_detector.run(behavior)
-        from demo_cache import is_offline_mode, get_cached_outreach
-        if is_offline_mode():
-            cached_msg = get_cached_outreach(customer["id"])
-            outreach = {"whatsapp_message": cached_msg or f"[Demo] Offer for {customer['name']}", "offline": True}
-        else:
-            outreach = await personalization_agent.run(customer, detection)
+        outreach = await personalization_agent.run(customer, detection)
         sessions[customer["id"]] = {
             "customer": customer,
             "event_data": detection,
