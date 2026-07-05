@@ -37,19 +37,19 @@ The platform combines behavioral analytics, multiple AI agents, fraud detection,
 
 ## Dashboard
 
-![Dashboard](docs/screenshots/dashboard.png)
+![Dashboard](docs/screenshots/dashboard.jpg)
 
 ---
 
 ## Live Demo
 
-![Demo](docs/screenshots/demo.png)
+![Demo](docs/screenshots/demo.jpg)
 
 ---
 
 ## Preflight System Check
 
-![Preflight](docs/screenshots/pre-flight.png)
+![Preflight](docs/screenshots/pre-flight.jpg)
 
 ---
 
