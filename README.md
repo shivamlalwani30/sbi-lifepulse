@@ -1,161 +1,378 @@
 # ⚡ SBI LifePulse — Agentic AI for Proactive Customer Engagement
-**Team Glucon-D** | Shivam Lalwani & Aanya Singh
-**SBI Hackathon @ GFF 2026** | Digital Engagement | Prize: ₹2.5 Lakhs
+
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![Next.js](https://img.shields.io/badge/Next.js-Frontend-black)
+![Claude AI](https://img.shields.io/badge/Claude-AI-orange)
+![Docker](https://img.shields.io/badge/Docker-Ready-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Hackathon](https://img.shields.io/badge/SBI-GFF%202026-success)
+
+> 🏆 **SBI Global FinTech Festival (GFF) 2026 Hackathon Submission**
+
+**Team Glucon-D**
+
+**Shivam Lalwani • Aanya Singh**
 
 ---
 
-## Quick Start
+# 🚀 Overview
+
+SBI LifePulse is an **AI-powered multi-agent banking assistant** that proactively detects customer life events from transaction behavior and recommends personalized SBI financial products before customers even search for them.
+
+The platform combines behavioral analytics, multiple AI agents, fraud detection, multilingual communication, and conversational AI to improve customer engagement while ensuring safe and relevant product recommendations.
+
+### Detects events like
+
+- 💍 Marriage
+- 👶 New Baby
+- 💰 Salary Hike
+- 🏡 New EMI
+- 🚗 Relocation
+- 🛡 Insurance Gap
+
+---
+
+# 📸 Screenshots
+
+## Dashboard
+
+![Dashboard](docs/screenshots/dashboard.png)
+
+---
+
+## Live Demo
+
+![Demo](docs/screenshots/demo.png)
+
+---
+
+## Preflight System Check
+
+![Preflight](docs/screenshots/pre-flight.png)
+
+---
+
+# ✨ Key Features
+
+- 🤖 Multi-Agent AI Pipeline
+- 📈 Behavioral Transaction Analysis
+- 💍 Automatic Life Event Detection
+- 🌍 Personalized Messages in 8 Languages
+- 🛡 Fraud Detection Engine
+- ✅ Product Eligibility Engine
+- 💬 Conversational AI Assistant
+- 📱 YONO Deep Link Generation
+- 📊 Customer Analytics Dashboard
+- 📲 WhatsApp Integration (Twilio)
+- ⚡ Offline Demo Support
+- 🚀 FastAPI + Next.js Architecture
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- Next.js
+- React
+- JavaScript
+
+## Backend
+
+- FastAPI
+- Python
+- Pandas
+- SQLite
+
+## AI
+
+- Anthropic Claude
+- Rule-Based AI Agents
+
+## DevOps
+
+- Docker
+- Docker Compose
+
+---
+
+# ⚡ Quick Start
+
+Clone the repository
 
 ```bash
-cp .env.example .env          # Add ANTHROPIC_API_KEY
-cd backend && pip install -r requirements.txt && uvicorn main:app --reload
-cd frontend && npm install && npm run dev   # new terminal
+git clone https://github.com/shivamlalwani30/sbi-lifepulse.git
+
+cd sbi-lifepulse
 ```
 
-Mac/Linux: `./start.sh` | Windows: `start.bat`
-
-**No API key?** The app still works — offline cache covers all 12 customers.
-
----
-
-## 26 Pages
-
-### Demo & Presentation
-| URL | Purpose |
-|-----|---------|
-| `/demo` | **GFF stage screen** — 3-panel fullscreen, customer selector |
-| `/m` | **Mobile demo** — jury scans QR, interacts on their phone |
-| `/qr` | QR code generator for slide deck |
-| `/simulate` | 🔴 Live simulation — synthetic customers streaming |
-| `/yono` | YONO in-app mockup — phone frame with live Claude chat |
-
-### Intelligence & Analysis  
-| URL | Purpose |
-|-----|---------|
-| `/` | Dashboard — 12 customers, pipelines, event feed |
-| `/analytics` | Conversion funnel, A/B testing, scale calculator |
-| `/feedback` | Agent 5 — outcome learning, threshold calibration |
-| `/risk` | Churn risk, upsell readiness, credit opportunity |
-| `/business` | Customer LTV, competitor comparison |
-| `/multilingual` | Hindi, Tamil, Telugu, Bengali, Marathi messages |
-
-### Operations
-| URL | Purpose |
-|-----|---------|
-| `/batch` | Parallel batch engine — all customers at once |
-| `/webhook` | Finacle transaction simulator — push live events |
-| `/campaigns` | Production cron schedule + SLA guarantees |
-| `/fraud` | Pre-send fraud gate — 6 detection checks |
-| `/twilio` | Real WhatsApp setup + one-click jury send |
-| `/eligibility` | Product eligibility pre-check + fallback chain |
-| `/deeplink` | Pre-filled YONO deeplinks for 1-tap enrollment |
-
-### Knowledge & Pitch
-| URL | Purpose |
-|-----|---------|
-| `/scale` | Architecture + 3-phase rollout + ₹2,520 Cr numbers |
-| `/agents` | Agent explainer — input/output/jury Q&A per agent |
-| `/performance` | Live agent timing benchmark — proves 8-sec SLA |
-| `/pitch` | **Pitch kit** — all numbers, jury Q&A, one-click copy |
-| `/preflight` | ✅ 24 system checks — run 30 min before GFF |
-
-### Customer Detail
-| URL | Purpose |
-|-----|---------|
-| `/customer/[id]` | 360° profile — 7 tabs: overview, transactions, signals, eligibility, fraud, CLV, deeplink |
-
----
-
-## 6 Agents + 10 Support Modules
-
-```
-Core Agents:
-  behavior_monitor.py       Pandas transaction analysis → behavioral signals
-  life_event_detector.py    Rule scoring → life event + confidence (6 types)
-  personalization_agent.py  Claude → personalized WhatsApp message (8 languages)
-  conversational_close.py   Claude → enrollment conversation to completion
-  feedback_loop.py          Outcome learning → auto-calibrates thresholds
-  multilingual_agent.py     Claude → Hindi/Tamil/Telugu/Bengali/Marathi/Kannada/Malayalam/Gujarati
-
-Support Agents:
-  intent_classifier.py      Zero-latency reply intent (STRONG_YES/REJECTION/etc.)
-  sentiment_tracker.py      Conversation sentiment → strategy recommendation
-  eligibility_checker.py    Product eligibility pre-check + fallback chain
-  fraud_detector.py         6-check pre-send safety gate
-  risk_scoring.py           Churn/upsell/credit/dormancy scores
-  clv_calculator.py         5-year + lifetime customer value
-  yono_deeplink.py          Pre-filled app deeplinks for 1-tap enrollment
-  product_catalog.py        8 real SBI products with eligibility rules
-
-Infrastructure:
-  session_store.py          SQLite persistent conversation memory + opt-out
-  demo_cache.py             Offline fallback — works without API key
-  ab_testing.py             3 message variants, conversion tracking
-  scale_metrics.py          Configurable ₹2,520 Cr impact calculator
-  batch_engine.py           Async parallel processing
-  campaign_scheduler.py     6 production campaigns + cron schedule
-  twilio_integration.py     Real WhatsApp delivery (optional)
-```
-
----
-
-## 12 Mock Customers (6 life events × 2 cities each)
-
-| ID | Name | City | Life Event | Product |
-|----|------|------|-----------|---------|
-| CUST001 | Priya Sharma | Mumbai | Salary Hike +50% | SIP |
-| CUST002 | Arjun Mehta | Pune→Bengaluru | Relocation | Card Upgrade |
-| CUST003 | Sunita Devi | Lucknow | New EMI | Term Insurance |
-| CUST004 | Rahul Verma | Hyderabad | Insurance Gap | Smart Protect |
-| CUST005 | Kavya Reddy | Chennai | Marriage | Joint Acct + Home Loan |
-| CUST006 | Deepak Nair | Kochi | New Baby | Child Plan |
-| CUST007 | Meera Pillai | Thiruvananthapuram | Salary Hike +60% | SIP |
-| CUST008 | Ravi Kumar | Patna | Insurance Gap | Smart Protect |
-| CUST009 | Ananya Das | Kolkata | New Baby | Child Plan |
-| CUST010 | Suresh Gowda | Mysuru→Pune | Relocation | Card Upgrade |
-| CUST011 | Fatima Sheikh | Pune | Marriage | Joint Acct + Home Loan |
-| CUST012 | Vikram Yadav | Jaipur | New EMI (Car+Home) | Term Insurance |
-
----
-
-## Before Every Demo
+Create environment variables
 
 ```bash
-cd backend && python3 test_suite.py
-# → 🏆 ALL 227 TESTS PASS — DEMO READY!
+cp .env.example .env
 ```
 
-Then open `localhost:3000/preflight` — 24 live system checks.
+Add your Claude API key
 
----
+```env
+ANTHROPIC_API_KEY=your_api_key
+```
 
-## Key Numbers (for jury)
-
-- **₹2,520 Cr/yr** — revenue uplift at 500M customer scale
-- **175,000×** — ROI on ₹0.02 API cost per customer
-- **8 languages** — auto-detected from city
-- **6 fraud checks** — pre-send safety gate
-- **8 product eligibility rules** — no bad offers
-- **227 automated tests** — 100% pass rate
-- **26 pages** — dashboard to QR code
-- **< 8 seconds** — end-to-end pipeline SLA
-- **Works offline** — demo cache covers all 12 customers without API key
-
----
-
-## Optional: Real WhatsApp (Twilio)
+Start the backend
 
 ```bash
-# Add to .env:
-TWILIO_ACCOUNT_SID=ACxxxxxxxx
-TWILIO_AUTH_TOKEN=your_token
-TWILIO_WHATSAPP_FROM=whatsapp:+14155238886
-TWILIO_DEMO_PHONE=whatsapp:+91XXXXXXXXXX
+cd backend
 
-# Then go to /twilio and hit "Send Real WhatsApp"
+pip install -r requirements.txt
+
+uvicorn main:app --reload
+```
+
+Start the frontend
+
+```bash
+cd frontend
+
+npm install
+
+npm run dev
+```
+
+Visit
+
+```
+http://localhost:3000
 ```
 
 ---
 
-*Team Glucon-D · SBI Hackathon @ GFF 2026*
-*Shivam Lalwani & Aanya Singh*
+# 📂 Project Structure
+
+```
+backend/
+frontend/
+docs/
+README.md
+docker-compose.yml
+.env.example
+```
+
+---
+
+# 🧠 Multi-Agent Pipeline
+
+```
+Behavior Monitor
+        │
+        ▼
+Life Event Detector
+        │
+        ▼
+Eligibility Checker
+        │
+        ▼
+Fraud Detector
+        │
+        ▼
+Personalization Agent
+        │
+        ▼
+Conversation Agent
+        │
+        ▼
+Customer Engagement
+```
+
+---
+
+# 📱 Application Modules
+
+## Customer Experience
+
+| Page | Description |
+|------|-------------|
+| `/` | Dashboard |
+| `/demo` | Main Jury Demo |
+| `/m` | Mobile Demo |
+| `/customer/[id]` | Customer 360° Profile |
+| `/yono` | YONO Banking Mockup |
+
+---
+
+## AI Intelligence
+
+| Page | Description |
+|------|-------------|
+| `/analytics` | Business Analytics |
+| `/risk` | Risk Engine |
+| `/feedback` | Learning Agent |
+| `/multilingual` | Multi-language Messages |
+| `/business` | Customer Lifetime Value |
+
+---
+
+## Operations
+
+| Page | Description |
+|------|-------------|
+| `/batch` | Batch Processing |
+| `/campaigns` | Campaign Engine |
+| `/fraud` | Fraud Dashboard |
+| `/eligibility` | Product Eligibility |
+| `/deeplink` | YONO Deep Links |
+| `/twilio` | WhatsApp Integration |
+| `/webhook` | Finacle Simulator |
+
+---
+
+## Demo Utilities
+
+| Page | Description |
+|------|-------------|
+| `/agents` | Agent Architecture |
+| `/performance` | SLA Benchmark |
+| `/pitch` | Jury Pitch Kit |
+| `/scale` | Revenue Calculator |
+| `/preflight` | System Health Check |
+| `/simulate` | Live Customer Simulation |
+| `/qr` | QR Code Generator |
+
+---
+
+# 🤖 AI Agents
+
+### Core Agents
+
+- Behavior Monitor
+- Life Event Detector
+- Personalization Agent
+- Conversational Close Agent
+- Feedback Loop
+- Multilingual Agent
+
+### Support Modules
+
+- Intent Classifier
+- Sentiment Tracker
+- Eligibility Checker
+- Fraud Detector
+- Risk Scoring
+- Customer Lifetime Value Calculator
+- Product Catalog
+- YONO Deep Link Generator
+- Batch Engine
+- Campaign Scheduler
+- Session Store
+- Demo Cache
+
+---
+
+# 👥 Demo Dataset
+
+The application includes **12 realistic SBI customer profiles** representing six major life events across multiple Indian cities.
+
+Each customer includes:
+
+- Transaction History
+- Behaviour Signals
+- AI Predictions
+- Fraud Score
+- Product Eligibility
+- Personalized Recommendations
+
+---
+
+# 📊 Project Highlights
+
+| Metric | Value |
+|---------|------:|
+| AI Agents | 6 |
+| Support Modules | 10+ |
+| Demo Customers | 12 |
+| Languages | 8 |
+| Fraud Checks | 6 |
+| Eligibility Rules | 8 |
+| Pages | 26 |
+| Automated Tests | 227 |
+| SLA | < 8 Seconds |
+| Revenue Opportunity | ₹2,520 Cr/year |
+
+---
+
+# 📱 WhatsApp Integration
+
+Configure Twilio credentials inside `.env`
+
+```env
+TWILIO_ACCOUNT_SID=
+TWILIO_AUTH_TOKEN=
+TWILIO_WHATSAPP_FROM=
+TWILIO_DEMO_PHONE=
+```
+
+Visit
+
+```
+/twilio
+```
+
+to send real WhatsApp messages.
+
+---
+
+# 🧪 Preflight
+
+Before every presentation run
+
+```bash
+cd backend
+
+python test_suite.py
+```
+
+Then visit
+
+```
+http://localhost:3000/preflight
+```
+
+to verify every system component.
+
+---
+
+# 🌟 Why SBI LifePulse?
+
+Traditional banking is reactive.
+
+SBI LifePulse transforms banking into a proactive AI-driven experience by identifying customer needs before they are explicitly expressed.
+
+It combines intelligent behavioral analysis, multilingual communication, fraud prevention, eligibility verification, and conversational AI into one unified platform capable of operating at SBI's national scale.
+
+---
+
+# 👨‍💻 Team
+
+## Team Glucon-D
+
+### Shivam Lalwani
+
+- Full Stack Development
+- AI Integration
+- Backend Engineering
+
+### Aanya Singh
+
+- Frontend Development
+- UI/UX Design
+- Product Presentation
+
+---
+
+# 📜 License
+
+This project is released under the **MIT License**.
+
+---
+
+⭐ If you found this project interesting, consider giving it a **Star**!
