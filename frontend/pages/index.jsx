@@ -7,7 +7,7 @@ import EventFeed from "../components/EventFeed";
 import WhatsAppChat from "../components/WhatsAppChat";
 import CompliancePanel from "../components/CompliancePanel";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001";
 
 export default function Dashboard() {
   const [customers, setCustomers] = useState([]);
@@ -73,7 +73,7 @@ export default function Dashboard() {
     setRunAllActive(true);
     setEvents([{ type: "status", payload: { message: "🚀 Running full pipeline for all customers..." }, ts: new Date().toLocaleTimeString() }]);
 
-    for (const customer of customers) {
+    for (const customer of (Array.isArray(customers) ? customers : [])) {
       await new Promise((resolve) => {
         setSelectedCustomer(customer);
         setPipelineRunning(customer.id);
@@ -219,7 +219,7 @@ export default function Dashboard() {
                 </div>
               ) : (
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "1rem" }}>
-                  {customers.map((c) => (
+                  {Array.isArray(customers) && customers.map((c) => (
                     <CustomerCard
                       key={c.id}
                       customer={c}

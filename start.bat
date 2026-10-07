@@ -24,6 +24,6 @@ start "LifePulse Frontend" cmd /k "cd frontend && npm install && npm run dev"
 echo.
 echo ✅ Both windows launched!
 echo    Dashboard → http://localhost:3000
-echo    API docs  → http://localhost:8000/docs
+echo    API docs  → http://localhost:8001/docs
 echo.
 pause

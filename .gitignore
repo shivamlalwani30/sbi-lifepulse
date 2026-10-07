@@ -23,3 +23,19 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Runtime database
+backend/data/sessions.db
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Runtime database
+backend/data/sessions.db

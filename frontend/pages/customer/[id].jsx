@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Nav from "../../components/Nav";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001";
 
 const EVENT_META = {
   salary_hike:       { label: "Salary Hike",    color: "#22c55e", emoji: "📈" },

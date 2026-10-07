@@ -28,7 +28,7 @@ echo "✅  API key found"
 echo ""
 
 # Start backend
-echo "🚀  Starting FastAPI backend on http://localhost:8000 ..."
+echo "🚀  Starting FastAPI backend on http://localhost:8001 ..."
 cd backend
 pip install -r requirements.txt -q
 uvicorn main:app --reload --port 8000 &
@@ -53,7 +53,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "✅  SBI LifePulse is running!"
 echo ""
 echo "   Dashboard  →  http://localhost:3000"
-echo "   API docs   →  http://localhost:8000/docs"
+echo "   API docs   →  http://localhost:8001/docs"
 echo ""
 echo "   Press Ctrl+C to stop"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001";
 
 export default function NotificationBell() {
   const [notifications, setNotifications] = useState([]);

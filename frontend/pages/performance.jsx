@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import Nav from "../components/Nav";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001";
 
 const AGENT_SPECS = [
   { id: "agent1", name: "Behavior Monitor",      color: "#3b82f6", typ: 2,    min: 1,    max: 8,    unit: "ms",  tech: "Pandas DataFrame scan" },

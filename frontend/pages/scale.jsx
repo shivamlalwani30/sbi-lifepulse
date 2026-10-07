@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001";
 
 export default function ScalePage() {
   const [scale, setScale] = useState(null);

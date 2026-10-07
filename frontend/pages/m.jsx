@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Head from "next/head";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001";
 
 // This page is designed for phone screens — minimal nav, WhatsApp-first
 export default function MobileDemoPage() {

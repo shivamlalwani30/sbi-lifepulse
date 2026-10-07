@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001";
 
 const STEPS = ["idle", "analyzing", "detected", "messaging", "chat", "enrolled"];
 
@@ -127,7 +127,9 @@ export default function DemoPage() {
     }
   };
 
-  const selectedCustomer = customers.find((c) => c.id === selectedId);
+  const selectedCustomer = (Array.isArray(customers) ? customers : []).find(
+  (c) => c.id === selectedId
+);
 
   return (
     <>
@@ -147,7 +149,7 @@ export default function DemoPage() {
               onChange={(e) => { setSelectedId(e.target.value); reset(); }}
               style={{ background: "#1e2d4a", border: "1px solid #2d3f5e", color: "#e2e8f0", padding: "6px 12px", borderRadius: 7, fontSize: 13, fontFamily: "inherit", cursor: "pointer" }}
             >
-              {customers.map((c) => (
+              {(Array.isArray(customers) ? customers : []).map((c) => (
                 <option key={c.id} value={c.id}>{c.name} — {c.life_event_hint?.replace(/_/g, " ")}</option>
               ))}
             </select>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import Nav from "../components/Nav";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001";
 
 const SETUP_STEPS = [
   { step: 1, title: "Create free Twilio account", desc: "Go to twilio.com → Sign up (free trial, no credit card)", link: "https://www.twilio.com/try-twilio", cta: "Open Twilio" },

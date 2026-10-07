@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001";
 
 const YONO_OFFERS = [
   { id: 1, customer: "Priya Sharma", event: "Salary Hike", title: "Your income grew — invest the difference!", body: "Start a ₹2,000/month SIP today. At this growth rate, you could have ₹85L by 60.", cta: "Start SIP", icon: "📈", color: "#22c55e", badge: "New Offer" },

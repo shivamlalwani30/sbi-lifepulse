@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001";
 
 const GATE_META = {
   SAFE:       { color: "#22c55e", bg: "#16a34a22", icon: "✅", label: "SAFE — Clear to send" },
