@@ -16,7 +16,7 @@ from typing import Any
 from agents.intent_classifier import classify_intent
 
 ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
-MODEL = "claude-3-5-sonnet-20240620"
+MODEL = "claude-sonnet-4-6"
 
 
 def _build_system_prompt(customer: dict, event_data: dict, outreach_msg: str) -> str:
@@ -94,14 +94,27 @@ async def run(
     conversation_history: list[dict[str, str]],
     new_user_message: str,
 ) -> dict[str, Any]:
+
+    t_start = time.time()
+
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         raise ValueError("ANTHROPIC_API_KEY environment variable not set")
 
-    system_prompt = _build_system_prompt(customer, event_data, outreach_message)
+    # Classify the customer's latest message
+    intent_result = classify_intent(new_user_message)
+
+    system_prompt = _build_system_prompt(
+        customer,
+        event_data,
+        outreach_message
+    )
 
     messages = list(conversation_history)
-    messages.append({"role": "user", "content": new_user_message})
+    messages.append({
+        "role": "user",
+        "content": new_user_message
+    })
 
     async with httpx.AsyncClient(timeout=30.0) as client:
         response = await client.post(
@@ -118,17 +131,32 @@ async def run(
                 "messages": messages,
             },
         )
-        response.raise_for_status()
+
+        if response.status_code != 200:
+            print("ANTHROPIC STATUS:", response.status_code)
+            print("ANTHROPIC RESPONSE:", response.text)
+            response.raise_for_status()
+
         data = response.json()
 
     raw_reply = data["content"][0]["text"].strip()
+
     reply_message, enrollment_status = _parse_status(raw_reply)
 
     updated_history = list(conversation_history)
-    updated_history.append({"role": "user", "content": new_user_message})
-    updated_history.append({"role": "assistant", "content": reply_message})
+
+    updated_history.append({
+        "role": "user",
+        "content": new_user_message
+    })
+
+    updated_history.append({
+        "role": "assistant",
+        "content": reply_message
+    })
 
     t_end = time.time()
+
     return {
         "customer_id": customer["id"],
         "reply_message": reply_message,

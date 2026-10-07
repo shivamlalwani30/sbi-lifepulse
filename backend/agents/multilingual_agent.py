@@ -24,7 +24,7 @@ except ImportError:
 from typing import Any
 
 ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
-MODEL = "claude-3-5-sonnet-20240620"
+MODEL = "claude-sonnet-4-6"
 
 # City → language mapping
 CITY_LANGUAGE = {

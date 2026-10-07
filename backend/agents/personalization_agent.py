@@ -10,7 +10,7 @@ import httpx
 from typing import Any
 
 ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
-MODEL = "claude-3-5-sonnet-20240620"
+MODEL = "claude-sonnet-4-6"
 
 
 def _build_system_prompt() -> str:
@@ -87,6 +87,9 @@ async def run(customer: dict[str, Any], event_data: dict[str, Any], variant_styl
                 ],
             },
         )
+        if response.status_code != 200:
+            print("ANTHROPIC STATUS:", response.status_code)
+            print("ANTHROPIC RESPONSE:", response.text)
         response.raise_for_status()
         data = response.json()
 
