@@ -133,8 +133,12 @@ async def run(
         )
 
         if response.status_code != 200:
-            print("ANTHROPIC STATUS:", response.status_code)
-            print("ANTHROPIC RESPONSE:", response.text)
+            print("========== ANTHROPIC ERROR ==========")
+            print("STATUS:", response.status_code)
+            print("RESPONSE:", response.text)
+            print("MODEL:", MODEL)
+            print("MESSAGES:", messages)
+            print("======================================")
             response.raise_for_status()
 
         data = response.json()
